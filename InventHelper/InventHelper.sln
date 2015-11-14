@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventHelper", "InventHelper\InventHelper.csproj", "{98A05A1A-CC5A-49B0-B29E-D16EEB5CE800}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Planshet", "Planshet\Planshet.csproj", "{1E6DADF7-B975-4E1A-9DD5-C45EEAC0782C}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{98A05A1A-CC5A-49B0-B29E-D16EEB5CE800}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98A05A1A-CC5A-49B0-B29E-D16EEB5CE800}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98A05A1A-CC5A-49B0-B29E-D16EEB5CE800}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98A05A1A-CC5A-49B0-B29E-D16EEB5CE800}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E6DADF7-B975-4E1A-9DD5-C45EEAC0782C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E6DADF7-B975-4E1A-9DD5-C45EEAC0782C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E6DADF7-B975-4E1A-9DD5-C45EEAC0782C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E6DADF7-B975-4E1A-9DD5-C45EEAC0782C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

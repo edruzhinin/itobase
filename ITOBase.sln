@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITOBase", "ITOBase\ITOBase.csproj", "{63E097EC-980A-4AD9-BEEF-0AB85167DB21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITO_DAL", "ITO_DAL\ITO_DAL.csproj", "{DD6C338D-4480-41AC-9B7A-93340BB1EB0D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Invent", "Invent\Invent.csproj", "{E2E9F8D6-A36F-4A52-A467-870BE5EAF4FD}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{63E097EC-980A-4AD9-BEEF-0AB85167DB21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63E097EC-980A-4AD9-BEEF-0AB85167DB21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63E097EC-980A-4AD9-BEEF-0AB85167DB21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63E097EC-980A-4AD9-BEEF-0AB85167DB21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD6C338D-4480-41AC-9B7A-93340BB1EB0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD6C338D-4480-41AC-9B7A-93340BB1EB0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD6C338D-4480-41AC-9B7A-93340BB1EB0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD6C338D-4480-41AC-9B7A-93340BB1EB0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2E9F8D6-A36F-4A52-A467-870BE5EAF4FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2E9F8D6-A36F-4A52-A467-870BE5EAF4FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2E9F8D6-A36F-4A52-A467-870BE5EAF4FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2E9F8D6-A36F-4A52-A467-870BE5EAF4FD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
