@@ -866,7 +866,7 @@ namespace ITOBase
                 else
                     firstUpdate = false;
 
-                strSQL += "PositionID='" + (cbPosition.SelectedItem as ListElement);
+                strSQL += "PositionID='" + (cbPosition.SelectedItem as ListElement).Index + "'";
             }
             if (m_PlaceChanged)
             {
@@ -894,7 +894,7 @@ namespace ITOBase
 
 
 
-            strSQL += ", LastChangeID ='" + m_ProgramUserIdx.ToString() + "',CreateTime = GETDATE() where UserID ='" + m_SelectedUserIdx.ToString() + "'";
+            strSQL += ", LastChangeID ='" + m_ProgramUserIdx.ToString() + "',CreateTime = GETDATE(), Bitrix='1' where UserID ='" + m_SelectedUserIdx.ToString() + "'";
 
             m_ITOSQLCommand.ExecuteSQLNotQuery(strSQL);
 
