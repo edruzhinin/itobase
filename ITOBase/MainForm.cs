@@ -1474,6 +1474,12 @@ namespace ITOBase
             InventForm.ShowDialog();
         }
 
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            //Нажатие кнопки уволен
+
+        }
+
 
 
 

@@ -1,0 +1,30 @@
+--Необходимо вычислить не числится ли за сотрудником что либо
+  
+  declare @Count as int
+  
+  
+  -- проверяем мат ценности за пользователем
+  select @Count = COUNT(ID) from Invent where UserID = @UserIdx
+  
+  if (@Count > 0)
+  	return -1
+    
+  -- проверяем мат ценности как за МОЛ
+  select @Count = COUNT(ID) from Invent where MOL_ID = @UserIdx
+  
+  if (@Count > 0)
+  	return -2  
+  
+   -- проверяем лицензии на ПО
+  select @Count = COUNT(ID) from Licences where UserID = @UserIdx
+  
+  if (@Count > 0)
+  	return -3
+    
+  update Staff set State =-1 where UserID=@UserIdx
+  
+    
+  
+  
+  
+  return 0

@@ -104,6 +104,7 @@
             this.ReadBtn = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.button12 = new System.Windows.Forms.Button();
             this.InventToExcel = new System.Windows.Forms.Button();
             this.btnReadInvent = new System.Windows.Forms.Button();
             this.cbRoom = new System.Windows.Forms.ComboBox();
@@ -136,7 +137,7 @@
             this.dgvIventVSBook = new System.Windows.Forms.DataGridView();
             this.tabPage11 = new System.Windows.Forms.TabPage();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.button12 = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.cmenuPhones.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage5.SuspendLayout();
@@ -312,6 +313,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btnDelete);
             this.tabPage1.Controls.Add(this.lblMainEmail);
             this.tabPage1.Controls.Add(this.btnPositionToClipboard);
             this.tabPage1.Controls.Add(this.btnDepartmentToClipboard);
@@ -960,6 +962,16 @@
             this.tabPage9.Text = "Оборудование";
             this.tabPage9.UseVisualStyleBackColor = true;
             // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(828, 11);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(75, 23);
+            this.button12.TabIndex = 17;
+            this.button12.Text = "Создать";
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
+            // 
             // InventToExcel
             // 
             this.InventToExcel.Location = new System.Drawing.Point(919, 49);
@@ -1277,15 +1289,15 @@
             this.saveFileDialog1.Filter = "Excel | *.xlsx";
             this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
             // 
-            // button12
+            // btnDelete
             // 
-            this.button12.Location = new System.Drawing.Point(828, 11);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(75, 23);
-            this.button12.TabIndex = 17;
-            this.button12.Text = "Создать";
-            this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
+            this.btnDelete.Location = new System.Drawing.Point(30, 441);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.TabIndex = 30;
+            this.btnDelete.Text = "Уволен";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // MainForm
             // 
@@ -1451,6 +1463,7 @@
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button btnDelete;
 
     }
 }
