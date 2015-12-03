@@ -1476,7 +1476,20 @@ namespace ITOBase
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+
             //Нажатие кнопки уволен
+            string cmd = " exec dbo.DismissUser " + m_ProgramUserIdx.ToString() + ',' + m_SelectedUserIdx.ToString();
+
+            try
+            {
+                m_ITOSQLCommand.ExecuteSQLNotQuery(cmd);
+            }
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+            
 
         }
 
