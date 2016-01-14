@@ -269,6 +269,7 @@ namespace ITOBase
         public void FilllUserInfo(string _UserID)
         {
 
+            
             string filterString = "UserID=" + _UserID;
 
             DataRow[] staff = m_StaffTbl.Select(filterString);
@@ -286,8 +287,8 @@ namespace ITOBase
 
             dtpBirthDay.Text = staff[0]["Birthday"].ToString();
 
-            DataTable dt = m_ITOSQLCommand.ExecuteSQLCommand("Select dbo.GetUserFIOfromStaff(dep.ChiefID),dep.ShortName,dep.Name, pos.Name,dbo.GetBuildingName(stf.WorkPlace),dbo.GetStaffState(stf.State), stf.Login, stf.PayDoxLogin, mail.email  from stfOrgStructure dep, stfPositions pos ,  Staff stf, Emails mail" +
-                " where dep.DepartmentID = stf.DepartmentID and pos.PositionID = stf.PositionID and mail.EmailID = stf.emailID and stf.UserID=" + _UserID);
+            DataTable dt = m_ITOSQLCommand.ExecuteSQLCommand("Select dbo.GetUserFIOfromStaff(dep.ChiefID),dep.ShortName,dep.Name, pos.Name,dbo.GetBuildingName(stf.WorkPlace),dbo.GetStaffState(stf.State), stf.Login, stf.PayDoxLogin, dbo.GetEmailByID(stf.emailID) from stfOrgStructure dep, stfPositions pos ,  Staff stf" +
+                " where dep.DepartmentID = stf.DepartmentID and pos.PositionID = stf.PositionID and stf.UserID=" + _UserID);
 
 
             if (dt.Rows.Count > 0)
