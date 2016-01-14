@@ -1353,7 +1353,7 @@ namespace ITOBase
             }
 
         }
-
+        //qww
         private void button8_Click(object sender, EventArgs e)
         {
             string cmd = "select ID, [Наименование номенклатуры] , [Номенклатура], [Счет], [Номер],SerialNo ,Quntity, FactQuntity,Cost, dbo.GetUserFIOfromStaff(MOL_ID) as 'МОЛ', [Комментарий] from Bookkeeping  where [Наименование номенклатуры]  like '" + txbDevName.Text + "'";
@@ -1487,7 +1487,6 @@ namespace ITOBase
             catch (System.Data.SqlClient.SqlException ex)
             {
                 MessageBox.Show(ex.Message);
-
             }
             
 
