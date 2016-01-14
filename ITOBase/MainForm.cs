@@ -21,7 +21,7 @@ using InventHelper;
 namespace ITOBase
 {
 
-
+    //тест
 
     public partial class MainForm : Form
     {
