@@ -215,10 +215,11 @@ namespace ITOBase
             else
             {
                 btnEmailFromLogin.Text = "Проверить";
-                checkBoxNotCheckEmail.Visible = true;
+                
                 
 
             }
+            checkBoxNotCheckEmail.Visible = true;
 
 
         }
@@ -457,12 +458,8 @@ namespace ITOBase
                                                          );
             try
             {
-                if (m_ITOSQLCommand.ExecuteSQLNotQuery("insert into staff " + strFields + strValues) != 1)
-                {
-                    cbLog.Items.Add("insert into staff " + strFields + strValues + " FAIL");
-                    cbLog.SelectedIndex = cbLog.Items.Count - 1;
-                    return;
-                }
+                 m_ITOSQLCommand.ExecuteSQLNotQuery("insert into staff " + strFields + strValues); 
+                
             }
             catch (SystemException ex)
             {
@@ -498,15 +495,11 @@ namespace ITOBase
             
             try
             {
-                if (m_ITOSQLCommand.ExecuteSQLNotQuery(string.Format("insert into Emails (email, ChangeTime,State,ChangerID, UserID) values ('{0}',GETDATE(),'1','{1}','{2}')",
+                m_ITOSQLCommand.ExecuteSQLNotQuery(string.Format("insert into Emails (email, ChangeTime,State,ChangerID, UserID) values ('{0}',GETDATE(),'1','{1}','{2}')",
                                                                                     txbEmail.Text,
                                                                                     m_ChangerID.ToString(),
-                                                                                    strUserID)) != 1)
-                    {
-                        cbLog.Items.Add("Email  не добавлен " + txbEmail.Text);
-                        cbLog.SelectedIndex = cbLog.Items.Count - 1;
-                        return;
-                    }
+                                                                                    strUserID));
+                 
 
                 dt = m_ITOSQLCommand.ExecuteSQLCommand("select EmailID  from Emails where email = '" + txbEmail.Text + "'");
                 
