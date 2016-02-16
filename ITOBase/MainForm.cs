@@ -1208,48 +1208,54 @@ namespace ITOBase
 
             Excel.Workbook workbook = excel.Workbooks.Add();
 
+            excel.Cells[1, 1].Font.FontStyle = "Bold";
+            excel.Cells[1, 1].Value2 = "Список оборудования не сданного при увольнении:";
             
 
-            excel.Cells[1, 1].Font.FontStyle = "Bold";
-            excel.Cells[1, 1].Value2 = "Тип";
+            excel.Cells[3, 1].Font.FontStyle = "Bold";
+            excel.Cells[3, 1].Value2 = "Тип";
 
-            excel.Cells[1, 2].Font.FontStyle = "Bold";
-            excel.Cells[1, 2].Value2 = "Модель";
+            excel.Cells[3, 2].Font.FontStyle = "Bold";
+            excel.Cells[3, 2].Value2 = "Модель";
 
-            excel.Cells[1, 3].Font.FontStyle = "Bold";
-            excel.Cells[1, 3].Value2 = "ModelNo";
+            excel.Cells[3, 3].Font.FontStyle = "Bold";
+            excel.Cells[3, 3].Value2 = "ModelNo";
 
-            excel.Cells[1, 4].Font.FontStyle = "Bold";
-            excel.Cells[1, 4].Value2 = "SerialNo";
+            excel.Cells[3, 4].Font.FontStyle = "Bold";
+            excel.Cells[3, 4].Value2 = "SerialNo";
 
-            excel.Cells[1, 5].Font.FontStyle = "Bold";
-            excel.Cells[1, 5].Value2 = "Инв. №";
+            excel.Cells[3, 5].Font.FontStyle = "Bold";
+            excel.Cells[3, 5].Value2 = "Инв. №";
 
-            excel.Cells[1, 6].Font.FontStyle = "Bold";
-            excel.Cells[1, 6].Value2 = "Здание";
+            excel.Cells[3, 6].Font.FontStyle = "Bold";
+            excel.Cells[3, 6].Value2 = "Здание";
 
-            excel.Cells[1, 7].Font.FontStyle = "Bold";
-            excel.Cells[1, 7].Value2 = "Кабинет";
+            excel.Cells[3, 7].Font.FontStyle = "Bold";
+            excel.Cells[3, 7].Value2 = "Кабинет";
 
-            excel.Cells[1, 8].Font.FontStyle = "Bold";
-            excel.Cells[1, 8].Value2 = "Коментарий";
+            //excel.Cells[2, 8].Font.FontStyle = "Bold";
+            //excel.Cells[2, 8].Value2 = "Коментарий";
 
-            excel.Cells[1, 9].Font.FontStyle = "Bold";
-            excel.Cells[1, 9].Value2 = "Состояние";
+            //excel.Cells[2, 9].Font.FontStyle = "Bold";
+            //excel.Cells[2, 9].Value2 = "Состояние";
 
-            excel.Cells[1, 10].Font.FontStyle = "Bold";
-            excel.Cells[1, 10].Value2 = "Ответственный";
+            //excel.Cells[2, 10].Font.FontStyle = "Bold";
+            //excel.Cells[2, 10].Value2 = "Ответственный";
            
 
-            for (int i = 1; i < dgwDevices.ColumnCount; i++)
+            for (int i = 1; i < dgwDevices.ColumnCount-3; i++)
            
                 for (int j = 0; j < dgwDevices.RowCount-1; j++)              
                     {
-                    excel.Cells[j+2,i].NumberFormat = "@";
-                    excel.Cells[j+2, i].Value2 = dgwDevices[i,j].Value.ToString();
+                    excel.Cells[j+4,i].NumberFormat = "@";
+                    excel.Cells[j+4, i].Value2 = dgwDevices[i,j].Value.ToString();
                     }
             excel.Columns.AutoFit();
 
+            excel.Cells[dgwDevices.RowCount+3, 1].Font.FontStyle = "Bold";
+            excel.Cells[dgwDevices.RowCount+3, 1 ].Value2 = "Данное оборудование временно осталось у меня в пользовании";
+
+            
 
 
             
@@ -1491,6 +1497,11 @@ namespace ITOBase
 
             }
             
+
+        }
+
+        private void toolStripMenuAdd_Click(object sender, EventArgs e)
+        {
 
         }
 

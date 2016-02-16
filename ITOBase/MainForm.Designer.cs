@@ -41,6 +41,7 @@
             this.lbStaff = new System.Windows.Forms.ListBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.lblMainEmail = new System.Windows.Forms.Label();
             this.btnPositionToClipboard = new System.Windows.Forms.Button();
             this.btnDepartmentToClipboard = new System.Windows.Forms.Button();
@@ -137,7 +138,7 @@
             this.dgvIventVSBook = new System.Windows.Forms.DataGridView();
             this.tabPage11 = new System.Windows.Forms.TabPage();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.btnDelete = new System.Windows.Forms.Button();
+            this.toolStripMenuAdd = new System.Windows.Forms.ToolStripMenuItem();
             this.cmenuPhones.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage5.SuspendLayout();
@@ -183,22 +184,23 @@
             // 
             this.cmenuPhones.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuConfirm,
-            this.toolStripMenuChange});
+            this.toolStripMenuChange,
+            this.toolStripMenuAdd});
             this.cmenuPhones.Name = "cmenuPhones";
-            this.cmenuPhones.Size = new System.Drawing.Size(145, 48);
+            this.cmenuPhones.Size = new System.Drawing.Size(153, 92);
             this.cmenuPhones.Opening += new System.ComponentModel.CancelEventHandler(this.cmenuPhones_Opening);
             this.cmenuPhones.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.cmenuPhones_ItemClicked);
             // 
             // toolStripMenuConfirm
             // 
             this.toolStripMenuConfirm.Name = "toolStripMenuConfirm";
-            this.toolStripMenuConfirm.Size = new System.Drawing.Size(144, 22);
+            this.toolStripMenuConfirm.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuConfirm.Text = "Подтвердить";
             // 
             // toolStripMenuChange
             // 
             this.toolStripMenuChange.Name = "toolStripMenuChange";
-            this.toolStripMenuChange.Size = new System.Drawing.Size(144, 22);
+            this.toolStripMenuChange.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuChange.Text = "Изменить";
             // 
             // tabControl2
@@ -344,6 +346,16 @@
             this.tabPage1.Text = "Пользователь";
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(30, 441);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.TabIndex = 30;
+            this.btnDelete.Text = "Уволен";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // lblMainEmail
             // 
@@ -1289,15 +1301,12 @@
             this.saveFileDialog1.Filter = "Excel | *.xlsx";
             this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
             // 
-            // btnDelete
+            // toolStripMenuAdd
             // 
-            this.btnDelete.Location = new System.Drawing.Point(30, 441);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnDelete.TabIndex = 30;
-            this.btnDelete.Text = "Уволен";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.toolStripMenuAdd.Name = "toolStripMenuAdd";
+            this.toolStripMenuAdd.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuAdd.Text = "Добавить";
+            this.toolStripMenuAdd.Click += new System.EventHandler(this.toolStripMenuAdd_Click);
             // 
             // MainForm
             // 
@@ -1464,6 +1473,7 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuAdd;
 
     }
 }
