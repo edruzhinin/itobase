@@ -1169,7 +1169,7 @@ namespace ITOBase
         private void FillDevicesForUser(string _UserIdx)
         {
            // DataTable dt = m_ITOSQLCommand.ExecuteSQLCommand("select m.Type, m.BrandName, m.Model, m.ProductNo, d.Serial_Number, Inv_Number, State, dbo.GetUserFIOfromStaff() ");
-            DataTable dt = m_ITOSQLCommand.ExecuteSQLCommand("select ID,Type, Model, ModelNo, SerialNo, InvNo, Place, Room, CompName, State, dbo.GetUserFIOfromStaff(UserID) from Invent where UserID = "+_UserIdx+ "order by Type ");
+            DataTable dt = m_ITOSQLCommand.ExecuteSQLCommand("select ID,Type, Model, ModelNo, SerialNo, InvNo, Place, Room, CompName, State, dbo.GetUserFIOfromStaff(UserID), dbo.GetUserFIOfromStaff(MOL_ID) from Invent where UserID = " + _UserIdx + "order by Type ");
 
             dgwDevices.DataSource = dt; 
         }
@@ -1208,8 +1208,8 @@ namespace ITOBase
 
             Excel.Workbook workbook = excel.Workbooks.Add();
 
-            excel.Cells[1, 1].Font.FontStyle = "Bold";
-            excel.Cells[1, 1].Value2 = "Список оборудования не сданного при увольнении:";
+            //excel.Cells[1, 1].Font.FontStyle = "Bold";
+            //excel.Cells[1, 1].Value2 = "Список оборудования не сданного при увольнении:";
             
 
             excel.Cells[3, 1].Font.FontStyle = "Bold";
@@ -1233,17 +1233,20 @@ namespace ITOBase
             excel.Cells[3, 7].Font.FontStyle = "Bold";
             excel.Cells[3, 7].Value2 = "Кабинет";
 
-            //excel.Cells[2, 8].Font.FontStyle = "Bold";
-            //excel.Cells[2, 8].Value2 = "Коментарий";
+            excel.Cells[2, 8].Font.FontStyle = "Bold";
+            excel.Cells[2, 8].Value2 = "Коментарий";
 
-            //excel.Cells[2, 9].Font.FontStyle = "Bold";
-            //excel.Cells[2, 9].Value2 = "Состояние";
+            excel.Cells[2, 9].Font.FontStyle = "Bold";
+            excel.Cells[2, 9].Value2 = "Состояние";
 
-            //excel.Cells[2, 10].Font.FontStyle = "Bold";
-            //excel.Cells[2, 10].Value2 = "Ответственный";
+            excel.Cells[2, 10].Font.FontStyle = "Bold";
+            excel.Cells[2, 10].Value2 = "Ответственный";
+
+            excel.Cells[2, 11].Font.FontStyle = "Bold";
+            excel.Cells[2, 11].Value2 = "МОЛ";
            
 
-            for (int i = 1; i < dgwDevices.ColumnCount-3; i++)
+            for (int i = 1; i < dgwDevices.ColumnCount; i++)
            
                 for (int j = 0; j < dgwDevices.RowCount-1; j++)              
                     {
@@ -1252,8 +1255,8 @@ namespace ITOBase
                     }
             excel.Columns.AutoFit();
 
-            excel.Cells[dgwDevices.RowCount+3, 1].Font.FontStyle = "Bold";
-            excel.Cells[dgwDevices.RowCount+3, 1 ].Value2 = "Данное оборудование временно осталось у меня в пользовании";
+            //excel.Cells[dgwDevices.RowCount+3, 1].Font.FontStyle = "Bold";
+            //excel.Cells[dgwDevices.RowCount+3, 1 ].Value2 = "Данное оборудование временно осталось у меня в пользовании";
 
             
 
