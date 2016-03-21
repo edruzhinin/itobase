@@ -903,6 +903,14 @@ namespace ITOBase
 
             m_TableAdapterManager.StaffTableAdapter.Fill(m_StaffTbl);
             FilllUserInfo(m_SelectedUserIdx.ToString());
+
+            //если изменилось место, предложим перевезти оборудование
+            if (m_RoomChanged || m_PlaceChanged)
+            {
+                
+            }
+
+
             btnSave.Visible = false;
         }
 
