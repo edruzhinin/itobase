@@ -205,7 +205,7 @@ namespace ITOBase
         private void btnEmailFromLogin_Click(object sender, EventArgs e)
         {
             if (txbEmail.Text=="")
-                txbEmail.Text = txbLogin.Text + "@vniiaes-asutp.ru";
+                txbEmail.Text = txbLogin.Text + "@rasu.ru";
 
             if (CheckEmailNotExist(txbEmail.Text))
             {
@@ -299,7 +299,7 @@ namespace ITOBase
             //От кого письмо
             string from = "druzhinin@vniiaes-asutp.ru";
             //Кому письмо
-            string to = "admins@starlines.ru";
+            string to = "krukov@vniiaes.ru";
             //Тема письма
             string subject = "Новый почтовый ящик";
             //Текст письма
@@ -308,7 +308,8 @@ namespace ITOBase
             //Создаем сообщение
             MailMessage mess = new MailMessage(from, to, subject, body);
 
-            mess.CC.Add("admins@vniiaes.ru");
+           
+            mess.CC.Add("bushuev@vniiaes.ru");
 
  
             try

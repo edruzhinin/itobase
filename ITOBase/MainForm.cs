@@ -907,6 +907,7 @@ namespace ITOBase
             //если изменилось место, предложим перевезти оборудование
             if (m_RoomChanged || m_PlaceChanged)
             {
+
                 
             }
 
