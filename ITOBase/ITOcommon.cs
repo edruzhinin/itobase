@@ -144,6 +144,113 @@ namespace ITOCommon
             return m_LastName;
         }
 
+        static public string TranslitChar(string chRus)
+        {
+            string chEng = "";
+
+            switch (chRus.ToLower())
+            { 
+                case "а":
+                    chEng = "a";
+                    break;
+                case "б":
+                    chEng = "b";
+                    break;
+                case "в":
+                    chEng = "v";
+                    break;
+                case "г":
+                    chEng = "g";
+                    break;
+                case "д":
+                    chEng = "d";
+                    break;
+                case "е":
+                case "ё":
+                    chEng = "e";
+                    break;
+                case "ж":
+                    chEng = "zh";
+                    break;
+                case "з":
+                    chEng = "z";
+                    break;
+                case "и":
+                    chEng = "i";
+                    break;
+                case "й":
+                    chEng = "yi";
+                    break;
+                case "к":
+                    chEng = "k";
+                    break;
+                case "л":
+                    chEng = "l";
+                    break;
+                case "м":
+                    chEng = "m";
+                    break;
+                case "н":
+                    chEng = "n";
+                    break;
+                case "о":
+                    chEng = "o";
+                    break;
+                case "п":
+                    chEng = "p";
+                    break;
+                case "р":
+                    chEng = "r";
+                    break;
+                case "с":
+                    chEng = "s";
+                    break;
+                case "т":
+                    chEng = "t";
+                    break;
+                case "у":
+                    chEng = "y";
+                    break;
+                case "ф":
+                    chEng = "f";
+                    break;
+                case "х":
+                    chEng = "х";
+                    break;
+                case "ц":
+                    chEng = "с";
+                    break;
+                case "ш":
+                    chEng = "sh";
+                    break;
+                case "щ":
+                    chEng = "sch";
+                    break;
+                case "ь":
+                    chEng = "";
+                    break;
+                case "ъ":
+                    chEng = "";
+                    break;
+                case "ы":
+                    chEng = "i";
+                    break;
+                case "э":
+                    chEng = "e";
+                    break;
+                case "ю":
+                    chEng = "u";
+                    break;
+                case "я":
+                    chEng = "ya";
+                    break;
+                
+            }
+
+
+            return chEng;
+        }
+
 
 
     }

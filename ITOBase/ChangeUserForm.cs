@@ -204,8 +204,13 @@ namespace ITOBase
 
         private void btnEmailFromLogin_Click(object sender, EventArgs e)
         {
-            if (txbEmail.Text=="")
-                txbEmail.Text = txbLogin.Text + "@rasu.ru";
+            if (txbEmail.Text == "")
+
+                txbEmail.Text = ITO_StringConverter.TranslitChar(txbSecondName.Text.Substring(0,1)).ToUpper();
+
+                txbEmail.Text += ITO_StringConverter.TranslitChar(txbName.Text.Substring(0, 1)).ToUpper();
+                
+                txbEmail.Text += txbLogin.Text.Substring(0,1).ToUpper() + txbLogin.Text.Substring(1) + "@rasu.ru";
 
             if (CheckEmailNotExist(txbEmail.Text))
             {
