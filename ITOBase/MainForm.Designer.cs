@@ -234,7 +234,7 @@
             this.tabPage5.Controls.Add(this.splitContainer1);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage5.Size = new System.Drawing.Size(1045, 542);
             this.tabPage5.TabIndex = 0;
             this.tabPage5.Text = "Сотрудники";
@@ -349,7 +349,7 @@
             this.tabPage1.Controls.Add(this.dtpBirthDay);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(676, 481);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Пользователь";
@@ -471,6 +471,7 @@
             this.lbPhones.Name = "lbPhones";
             this.lbPhones.Size = new System.Drawing.Size(140, 82);
             this.lbPhones.TabIndex = 18;
+            this.lbPhones.SelectedIndexChanged += new System.EventHandler(this.lbPhones_SelectedIndexChanged);
             // 
             // groupBox2
             // 
@@ -744,7 +745,7 @@
             this.tabPage2.Controls.Add(this.dgwDevices);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(676, 481);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Оборудование";
@@ -901,7 +902,7 @@
             this.tabPage6.Controls.Add(this.dataGridView1);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage6.Size = new System.Drawing.Size(1045, 542);
             this.tabPage6.TabIndex = 1;
             this.tabPage6.Text = "Новые";

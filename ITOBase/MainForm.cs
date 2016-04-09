@@ -431,6 +431,8 @@ namespace ITOBase
             if (e.ClickedItem.Name == "toolStripMenuChange")
             {
                 MessageBox.Show("Изменить");
+
+
             }
 
             if (e.ClickedItem.Name == "toolStripMenuConfirm")
@@ -1006,7 +1008,7 @@ namespace ITOBase
                     {
                         sw.WriteLine("Доступ к электронной почте:\t{0}", lblMainEmail.Text);
                         sw.WriteLine("");
-                        sw.WriteLine("Сервер web,imap,smtp,pop3:\trambutan.vniiaes-asutp.ru");
+                        sw.WriteLine("Сервер web,imap,smtp,pop3:\tturnip.rasu.ru");
                         sw.WriteLine("Логин:\t\t\t\t{0}", lblMainEmail.Text);
                         sw.WriteLine("Пароль:\t\t\t\t{0}", (lbPasswords.Items[i] as ListElement).ShortName);
                         sw.WriteLine("");
@@ -1513,6 +1515,11 @@ namespace ITOBase
         }
 
         private void toolStripMenuAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbPhones_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

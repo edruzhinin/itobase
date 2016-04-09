@@ -97,6 +97,8 @@ namespace ITOCommon
         public string FormatPhone(string _Phone)
         {
             //TODO Проверить на ввод меньшго количества цифр
+            if (_Phone == "")
+                return "";
             string resultString = "";
 
             for (int i = 0; i < _Phone.Length; i++)

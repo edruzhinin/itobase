@@ -205,24 +205,19 @@ namespace ITOBase
         private void btnEmailFromLogin_Click(object sender, EventArgs e)
         {
             if (txbEmail.Text == "")
-
-                txbEmail.Text = ITO_StringConverter.TranslitChar(txbSecondName.Text.Substring(0,1)).ToUpper();
-
-                txbEmail.Text += ITO_StringConverter.TranslitChar(txbName.Text.Substring(0, 1)).ToUpper();
-                
-                txbEmail.Text += txbLogin.Text.Substring(0,1).ToUpper() + txbLogin.Text.Substring(1) + "@rasu.ru";
-
-            if (CheckEmailNotExist(txbEmail.Text))
             {
-                btnEmailFromLogin.Enabled = false;
-               
-            } 
+                txbEmail.Text = ITO_StringConverter.TranslitChar(txbName.Text.Substring(0, 1)).ToUpper();
+
+                txbEmail.Text += ITO_StringConverter.TranslitChar(txbSecondName.Text.Substring(0, 1)).ToUpper();
+                
+                txbEmail.Text += txbLogin.Text.Substring(0, 1).ToUpper() + txbLogin.Text.Substring(1) + "@rasu.ru";
+
+                btnEmailFromLogin.Text = "Проверить";
+
+            }
             else
             {
-                btnEmailFromLogin.Text = "Проверить";
-                
-                
-
+                CheckEmailNotExist(txbEmail.Text);
             }
             checkBoxNotCheckEmail.Visible = true;
 
@@ -402,7 +397,7 @@ namespace ITOBase
                 cbLog.Items.Add("Сгенерирован пароль: "+password);
                 cbLog.SelectedIndex = cbLog.Items.Count - 1;
                 
-                UserPrincipal oUserPrincipal = m_ADcon.CreateNewUser("CN=Users,DC=vniiaes-asutp,DC=lan", txbLogin.Text, password, txbName.Text, txbLastName.Text);
+                UserPrincipal oUserPrincipal = m_ADcon.CreateNewUser("OU=RASU,DC=vniiaes-asutp,DC=lan", txbLogin.Text, password, txbName.Text, txbLastName.Text);
 
                 oUserPrincipal.DisplayName = txbLastName.Text + " " +  txbName.Text + " " +  txbSecondName.Text;
                 oUserPrincipal.MiddleName = txbSecondName.Text;
@@ -434,6 +429,22 @@ namespace ITOBase
                      cbLog.Items.Add("Группа Bitrix не найдена ");
                      cbLog.SelectedIndex = cbLog.Items.Count - 1;
                  }
+
+                if (cbEnableWiFi.Checked)
+                {
+                    oGroupPrincipal = m_ADcon.GetGroup("OU=Service Permission,DC=vniiaes-asutp,DC=lan", "Wi-Fi Users");
+                    if (oGroupPrincipal != null)
+                    {
+                        oGroupPrincipal.Members.Add(oUserPrincipal);
+                        oGroupPrincipal.Save();
+                    }
+                    else
+                    {
+                        cbLog.Items.Add("Группа Wi-Fi Users не найдена ");
+                        cbLog.SelectedIndex = cbLog.Items.Count - 1;
+                    }
+                }
+
 
                 oUserPrincipal.Save();
                 cbLog.Items.Add("Пользователь  " + txbLogin.Text + " добавлен в AD");

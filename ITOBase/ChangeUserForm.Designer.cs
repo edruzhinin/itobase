@@ -59,6 +59,7 @@
             this.cbLog = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.checkBoxNotCheckEmail = new System.Windows.Forms.CheckBox();
+            this.cbEnableWiFi = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // txbName
@@ -329,11 +330,24 @@
             this.checkBoxNotCheckEmail.UseVisualStyleBackColor = true;
             this.checkBoxNotCheckEmail.Visible = false;
             // 
+            // cbEnableWiFi
+            // 
+            this.cbEnableWiFi.AutoSize = true;
+            this.cbEnableWiFi.Checked = true;
+            this.cbEnableWiFi.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbEnableWiFi.Location = new System.Drawing.Point(250, 225);
+            this.cbEnableWiFi.Name = "cbEnableWiFi";
+            this.cbEnableWiFi.Size = new System.Drawing.Size(96, 17);
+            this.cbEnableWiFi.TabIndex = 33;
+            this.cbEnableWiFi.Text = "Доступ к WiFi";
+            this.cbEnableWiFi.UseVisualStyleBackColor = true;
+            // 
             // ChangeUserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(538, 382);
+            this.Controls.Add(this.cbEnableWiFi);
             this.Controls.Add(this.checkBoxNotCheckEmail);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.cbLog);
@@ -406,5 +420,6 @@
         private System.Windows.Forms.ComboBox cbLog;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox checkBoxNotCheckEmail;
+        private System.Windows.Forms.CheckBox cbEnableWiFi;
     }
 }
