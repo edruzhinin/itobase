@@ -1524,6 +1524,47 @@ namespace ITOBase
 
         }
 
+        private void cmenuEmail_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void cmenuEmail_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            if (e.ClickedItem.Name == "menuItemEditEmail")
+            {
+                ChangeEmail EmailForm = new ChangeEmail((lbEmails.Items[lbEmails.SelectedIndex] as ListElement).Index.ToString());
+                
+                
+                EmailForm.ShowDialog();
+            }
+
+            if (e.ClickedItem.Name == "menuItemAddEmail")
+            {
+
+                ChangeEmail EmailForm = new ChangeEmail(true, m_SelectedUserIdx.ToString());
+
+
+                EmailForm.ShowDialog();
+            }
+
+            if (e.ClickedItem.Name == "menuItemDeleteEmail")
+            {
+                
+
+
+            }
+
+            if (e.ClickedItem.Name == "menuItemMakeMainEmail")
+            {
+                m_ITOSQLCommand.ExecuteSQLNotQuery("update staff set EmailID= '" + (lbEmails.Items[lbEmails.SelectedIndex] as ListElement).Index.ToString() + "' where UserID='" + m_SelectedUserIdx.ToString() + "'");
+
+
+            }
+
+            
+        }
+
 
 
 
