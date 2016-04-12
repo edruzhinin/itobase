@@ -30,6 +30,7 @@
         {
             this.txbEmail = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
+            this.cbMakeMainEmail = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // txbEmail
@@ -51,11 +52,22 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // cbMakeMainEmail
+            // 
+            this.cbMakeMainEmail.AutoSize = true;
+            this.cbMakeMainEmail.Location = new System.Drawing.Point(16, 55);
+            this.cbMakeMainEmail.Name = "cbMakeMainEmail";
+            this.cbMakeMainEmail.Size = new System.Drawing.Size(152, 21);
+            this.cbMakeMainEmail.TabIndex = 2;
+            this.cbMakeMainEmail.Text = "сделать основным";
+            this.cbMakeMainEmail.UseVisualStyleBackColor = true;
+            // 
             // ChangeEmail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(379, 116);
+            this.Controls.Add(this.cbMakeMainEmail);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txbEmail);
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -70,5 +82,6 @@
 
         private System.Windows.Forms.TextBox txbEmail;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.CheckBox cbMakeMainEmail;
     }
 }

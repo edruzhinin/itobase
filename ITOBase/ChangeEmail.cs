@@ -55,6 +55,8 @@ namespace ITOBase
             {
                 m_ITOSQLCommand.ExecuteSQLNotQuery("insert into emails (email,UserId) values ('" + txbEmail.Text + "','" + m_UserID + "')");
 
+                
+
 
             }
             else
@@ -62,6 +64,14 @@ namespace ITOBase
                 m_ITOSQLCommand.ExecuteSQLNotQuery("update emails set email= '" + txbEmail.Text + "' where EmailID='" + m_EmailID + "'");
             }
 
+            if (cbMakeMainEmail.Checked)
+            {
+                DataTable dt = m_ITOSQLCommand.ExecuteSQLCommand("Select EmailID,UserID from emails where Email='" + txbEmail.Text + "'");
+
+                m_ITOSQLCommand.ExecuteSQLNotQuery("update staff set Bitrix='1', EmailID ='" + dt.Rows[0][0].ToString() + "' where UserID='" + dt.Rows[0][1].ToString() + "'");
+            }
+            
+            
             Close();
 
         }

@@ -1557,7 +1557,7 @@ namespace ITOBase
 
             if (e.ClickedItem.Name == "menuItemMakeMainEmail")
             {
-                m_ITOSQLCommand.ExecuteSQLNotQuery("update staff set EmailID= '" + (lbEmails.Items[lbEmails.SelectedIndex] as ListElement).Index.ToString() + "' where UserID='" + m_SelectedUserIdx.ToString() + "'");
+                m_ITOSQLCommand.ExecuteSQLNotQuery("update staff set EmailID= '" + (lbEmails.Items[lbEmails.SelectedIndex] as ListElement).Index.ToString() + "', Bitrix='1' where UserID='" + m_SelectedUserIdx.ToString() + "'");
 
 
             }
