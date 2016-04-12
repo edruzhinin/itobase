@@ -116,8 +116,10 @@ namespace ITOCommon
                 }
             }
 
-            resultString = resultString.Substring(0, 1) + " " + resultString.Substring(1, 3) + " " + resultString.Substring(4, 3) + " " + resultString.Substring(7, 4);
-
+            if (resultString.Length == 10)
+                resultString = "8" + resultString;
+            if (resultString.Length == 11)
+                resultString = resultString.Substring(0, 1) + " " + resultString.Substring(1, 3) + " " + resultString.Substring(4, 3) + " " + resultString.Substring(7, 4);
             return resultString;
         }
         public ITO_StringConverter(string _FullName)
