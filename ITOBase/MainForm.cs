@@ -1565,6 +1565,23 @@ namespace ITOBase
             
         }
 
+        private void btnCreateUser_Click(object sender, EventArgs e)
+        {
+            ChangeUserForm changeForm = new ChangeUserForm();
+
+            changeForm.m_ChangerID = m_ProgramUserIdx;
+            
+            changeForm.ShowDialog();
+
+            //помечаем заявку обработанной
+         //  if (changeForm.ShowDialog() == DialogResult.OK)
+
+               // m_ITOSQLCommand.ExecuteSQLNotQuery("update NewUser set State = 1 where DocID='" + m_NewUser.Rows[e.RowIndex]["DocID"].ToString() + "'");
+
+           // m_TableAdapterManager.NewUserTableAdapter.Fill(m_NewUser);
+
+        }
+
 
 
 
