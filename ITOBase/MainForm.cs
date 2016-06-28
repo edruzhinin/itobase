@@ -568,8 +568,9 @@ namespace ITOBase
         {
             m_TableAdapterManager.NewUserTableAdapter.Fill(m_NewUser);
 
+            
             dataGridView1.DataSource = m_NewUser;
-
+            
 
 
 
@@ -588,6 +589,7 @@ namespace ITOBase
         {
             ChangeUserForm changeForm = new ChangeUserForm();
 
+            
             changeForm.m_ChangerID = m_ProgramUserIdx;
             changeForm.PrepareData(m_NewUser.Rows[e.RowIndex]["FullName"].ToString(),
                                     m_NewUser.Rows[e.RowIndex]["Department"].ToString(),
@@ -612,6 +614,9 @@ namespace ITOBase
         {
             label3.Text = "";
 
+            if (e.RowIndex < 0)
+                return;
+            
             ADMethodsAccountManagement ADcon = new ADMethodsAccountManagement();
 
 
@@ -985,7 +990,7 @@ namespace ITOBase
                 {
                     if (int.Parse((lbPasswords.Items[i] as ListElement).Type) == (int)ePasswordTypes.AD)
                     {
-                        sw.WriteLine(@"Доступ к Компьютеру (Active Directory), Сетевым ресурсам, Корпоративному сайту (http://10.15.140.6), СЭД WSS Saperion (http://df.vniiaes.ru)");
+                        sw.WriteLine(@"Доступ к Компьютеру (Active Directory), Сетевым ресурсам, Wi-Fi (vniiaes-asutp), Корпоративному сайту (http://10.15.140.6), СЭД PayDox (http://10.15.140.3)");
                         sw.WriteLine("");
                         sw.WriteLine("Логин:\t\t{0}", lblLogin.Text);
                         sw.WriteLine("Пароль:\t\t{0}", (lbPasswords.Items[i] as ListElement).ShortName);
