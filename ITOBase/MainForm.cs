@@ -147,6 +147,40 @@ namespace ITOBase
 
         }
 
+        public void FilllbStaff()
+        {
+            lbStaffAlpha.Items.Clear();
+
+
+
+            StaffTableAdapter dAdapt = new StaffTableAdapter();
+
+
+            ITO_DAL.dsITO.StaffDataTable staffTbl = new dsITO.StaffDataTable();
+
+            dAdapt.Fill(staffTbl);
+
+            string filterString = "";
+            string sortString = "LastName ASC";
+            
+            DataRow[] staff = staffTbl.Select(filterString,sortString);
+            
+
+            //Отбражаем организационные единицы верхнего уровня UpDepID NULL
+            for (int i = 0; i < staff.Length; i++)
+            {
+                ListElement le = new ListElement(staff[i]["UserID"].ToString(), staff[i]["LastName"].ToString() + " " +
+                        staff[i]["Name"].ToString() + " " + staff[i]["SecondName"].ToString());
+                
+                lbStaffAlpha.Items.Add(le);
+
+                //lbStaff.Items
+                //  lvStaff.Items.Add(staff[i]["UserID"].ToString(), staff[i]["LastName"].ToString() + " " +
+                // staff[i]["Name"].ToString() + " " + staff[i]["SecondName"].ToString(),0);
+            }
+
+        }
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -1584,6 +1618,28 @@ namespace ITOBase
                // m_ITOSQLCommand.ExecuteSQLNotQuery("update NewUser set State = 1 where DocID='" + m_NewUser.Rows[e.RowIndex]["DocID"].ToString() + "'");
 
            // m_TableAdapterManager.NewUserTableAdapter.Fill(m_NewUser);
+
+        }
+
+        private void splitContainer2_Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tabCtrlStruct_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabCtrlStruct.SelectedIndex == 1)
+                FilllbStaff();
+        }
+
+        private void lbStaffAlpha_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lbStaffAlpha.SelectedItems.Count > 0)
+            {
+                m_SelectedUserIdx = Convert.ToInt32((lbStaffAlpha.SelectedItem as ListElement).Index);
+                FilllUserInfo((lbStaffAlpha.SelectedItem as ListElement).Index);
+                FillDevicesForUser((lbStaffAlpha.SelectedItem as ListElement).Index);
+            }
 
         }
 
