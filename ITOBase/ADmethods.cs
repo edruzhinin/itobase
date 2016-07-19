@@ -15,7 +15,8 @@ namespace ADMethods
         #region Variables
 
         private string sDomain = "vniiaes-asutp.lan";
-        private string sDefaultOU = "CN=Users,DC=vniiaes-asutp,DC=lan";
+        private string sDefaultOU = "OU=RASU,DC=vniiaes-asutp,DC=lan";
+        //private string sDefaultOU = "CN=Users,DC=vniiaes-asutp,DC=lan";
         private string sDefaultRootOU = "DC=vniiaes-asutp,DC=lan";
         private string sServiceUser =@"vniiaes-asutp\evd";
         private string sServicePassword ="AKT7uvfp";

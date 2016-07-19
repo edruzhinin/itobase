@@ -1668,6 +1668,100 @@ namespace ITOBase
 
         private void btnADSave_Click(object sender, EventArgs e)
         {
+            ADMethodsAccountManagement ADcon = new ADMethodsAccountManagement();
+            
+
+            //проверяем, если такой пользователь уже есть
+            if (ADcon.IsUserExisiting(tbLogin.Text))
+            {
+                MessageBox.Show("Такой пользователь уже есть");
+                return;
+            }
+
+            
+            
+            
+            string password= null;
+            
+            PasswordGenerator pass = new PasswordGenerator();
+            password = pass.GeneratePassword(5);  //пароль для AD
+
+            
+
+            UserPrincipal oUserPrincipal = ADcon.CreateNewUser("OU=RASU,DC=vniiaes-asutp,DC=lan", tbLogin.Text, password, txbName.Text, txbLastName.Text);
+
+            oUserPrincipal.DisplayName = txbLastName.Text + " " + txbName.Text + " " + txbSecondName.Text;
+            oUserPrincipal.MiddleName = txbSecondName.Text;
+            //oUserPrincipal.PasswordNeverExpires = true;
+            oUserPrincipal.EmailAddress = lblMainEmail.Text;
+
+            //Добавляем пользователя в группы по умолчанию
+
+            GroupPrincipal oGroupPrincipal = ADcon.GetGroup("OU=Share Permission,DC=vniiaes-asutp,DC=lan", "grpPermLocalUsers");
+            if (oGroupPrincipal != null)
+            {
+                oGroupPrincipal.Members.Add(oUserPrincipal);
+                oGroupPrincipal.Save();
+            }
+            
+
+            oGroupPrincipal = ADcon.GetGroup("OU=Bitrix, OU=Share Permission,DC=vniiaes-asutp,DC=lan", "1С-Битрикс - Сотрудники");
+            if (oGroupPrincipal != null)
+            {
+                oGroupPrincipal.Members.Add(oUserPrincipal);
+                oGroupPrincipal.Save();
+            }
+           
+           
+
+           oGroupPrincipal = ADcon.GetGroup("OU=Service Permission,DC=vniiaes-asutp,DC=lan", "Wi-Fi Users");
+           if (oGroupPrincipal != null)
+                {
+                    oGroupPrincipal.Members.Add(oUserPrincipal);
+                    oGroupPrincipal.Save();
+                }
+               
+
+
+            oUserPrincipal.Save();
+
+            try
+            {
+                m_ITOSQLCommand.ExecuteSQLNotQuery(string.Format("update staff set Login='{0}' where UserID='{1}'",
+                                                                                                  tbLogin.Text,
+                                                                                                  m_SelectedUserIdx.ToString()));
+
+
+            }
+
+            catch (SystemException ex)
+            {
+
+
+            }
+
+
+
+            if (password != null)
+            {
+                try
+                {
+                    m_ITOSQLCommand.ExecuteSQLNotQuery(string.Format("insert into stfPasswords (Password, Type,LastChangerID,UserID) values ('{0}','{1}','{2}','{3}')",
+                                                                                                      password,
+                                                                                                      (int)ePasswordTypes.AD,
+                                                                                                      m_ProgramUserIdx.ToString(),
+                                                                                                       m_SelectedUserIdx.ToString()));
+               
+                
+                }
+
+                catch (SystemException ex)
+                {
+                   
+
+                }
+                
+            }
 
         }
 
