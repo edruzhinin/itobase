@@ -303,7 +303,10 @@ namespace ITOBase
         public void FilllUserInfo(string _UserID)
         {
 
-            
+            btnADCreate.Visible = false;
+            btnADSave.Visible = false;
+
+
             string filterString = "UserID=" + _UserID;
 
             DataRow[] staff = m_StaffTbl.Select(filterString);
@@ -337,7 +340,7 @@ namespace ITOBase
 
                 lblState.Text = dt.Rows[0][5].ToString();
 
-                lblLogin.Text = dt.Rows[0][6].ToString();
+                tbLogin.Text = dt.Rows[0][6].ToString();
 
                 if (dt.Rows[0][7].ToString() != "")
                     lblPayDoxLogin.Text = dt.Rows[0][7].ToString();
@@ -1015,7 +1018,7 @@ namespace ITOBase
         {
             try
             {
-                FileStream aFile = new FileStream(lblLogin.Text + ".txt", FileMode.OpenOrCreate);
+                FileStream aFile = new FileStream(tbLogin.Text + ".txt", FileMode.OpenOrCreate);
                 StreamWriter sw = new StreamWriter(aFile);
                 sw.WriteLine("Учетный данные пользователя:\t{0} {1} {2}", txbLastName.Text, txbName.Text, txbSecondName.Text);
                 sw.WriteLine("");
@@ -1026,11 +1029,11 @@ namespace ITOBase
                     {
                         sw.WriteLine(@"Доступ к Компьютеру (Active Directory), Сетевым ресурсам, Wi-Fi (vniiaes-asutp), Корпоративному сайту (http://10.15.140.6), СЭД PayDox (http://10.15.140.3)");
                         sw.WriteLine("");
-                        sw.WriteLine("Логин:\t\t{0}", lblLogin.Text);
+                        sw.WriteLine("Логин:\t\t{0}", tbLogin.Text);
                         sw.WriteLine("Пароль:\t\t{0}", (lbPasswords.Items[i] as ListElement).ShortName);
                         sw.WriteLine("");
                         sw.WriteLine("Прошу обратить внимание!!!");
-                        sw.WriteLine(@"Для достпа к сетевым ресурсам с компьютеров, не являющихся членами домена vniiaes-asutp необходимо вводить полное имя в формате domen\user (vniiaes-asutp\" + lblLogin.Text + ")");
+                        sw.WriteLine(@"Для достпа к сетевым ресурсам с компьютеров, не являющихся членами домена vniiaes-asutp необходимо вводить полное имя в формате domen\user (vniiaes-asutp\" + tbLogin.Text + ")");
                         sw.WriteLine("");
                     }
 
@@ -1057,7 +1060,7 @@ namespace ITOBase
                     {
                         sw.WriteLine(@"Доступ к FTP серверу (ftp://212.45.22.102)");
                         sw.WriteLine("");
-                        sw.WriteLine("Логин:\t\t{0}", lblLogin.Text);
+                        sw.WriteLine("Логин:\t\t{0}", tbLogin.Text);
                         sw.WriteLine("Пароль:\t\t{0}", (lbPasswords.Items[i] as ListElement).ShortName);
                         sw.WriteLine("");
                     }
@@ -1066,7 +1069,7 @@ namespace ITOBase
                     {
                         sw.WriteLine(@"Доступ к SVN серверу (svn://212.45.22.102)");
                         sw.WriteLine("");
-                        sw.WriteLine("Логин:\t\t{0}", lblLogin.Text);
+                        sw.WriteLine("Логин:\t\t{0}", tbLogin.Text);
                         sw.WriteLine("Пароль:\t\t{0}", (lbPasswords.Items[i] as ListElement).ShortName);
                         sw.WriteLine("");
                     }
@@ -1075,7 +1078,7 @@ namespace ITOBase
                     {
                         sw.WriteLine(@"Доступ к VPN (212.45.22.99)");
                         sw.WriteLine("");
-                        sw.WriteLine("Логин:\t\t{0}", lblLogin.Text);
+                        sw.WriteLine("Логин:\t\t{0}", tbLogin.Text);
                         sw.WriteLine("Пароль:\t\t{0}", (lbPasswords.Items[i] as ListElement).ShortName);
                         sw.WriteLine("");
                     }
@@ -1641,6 +1644,36 @@ namespace ITOBase
                 FillDevicesForUser((lbStaffAlpha.SelectedItem as ListElement).Index);
             }
 
+        }
+
+        private void btnADCheck_Click(object sender, EventArgs e)
+        {
+            ADMethodsAccountManagement ADcon = new ADMethodsAccountManagement();
+            if (ADcon.IsUserExisiting(tbLogin.Text))
+                {
+                //такой пользователь уже есть
+                }
+            else
+                {
+                //такого пользователя нет
+                    btnADCreate.Visible = true;
+            
+                }
+        }
+
+        private void tbLogin_TextChanged(object sender, EventArgs e)
+        {
+            btnADSave.Visible = true;
+        }
+
+        private void btnADSave_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnADCreate_Click(object sender, EventArgs e)
+        {
+            
         }
 
 

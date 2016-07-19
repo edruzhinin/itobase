@@ -43,6 +43,7 @@
             this.tvDepartments = new System.Windows.Forms.TreeView();
             this.lbStaff = new System.Windows.Forms.ListBox();
             this.tabPage13 = new System.Windows.Forms.TabPage();
+            this.lbStaffAlpha = new System.Windows.Forms.ListBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnCreateUser = new System.Windows.Forms.Button();
@@ -82,7 +83,6 @@
             this.lblPayDoxLogin = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.lblLogin = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
             this.lbEmail = new System.Windows.Forms.Label();
             this.btnAddPassword = new System.Windows.Forms.Button();
@@ -148,7 +148,10 @@
             this.dgvIventVSBook = new System.Windows.Forms.DataGridView();
             this.tabPage11 = new System.Windows.Forms.TabPage();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.lbStaffAlpha = new System.Windows.Forms.ListBox();
+            this.btnADCheck = new System.Windows.Forms.Button();
+            this.tbLogin = new System.Windows.Forms.TextBox();
+            this.btnADSave = new System.Windows.Forms.Button();
+            this.btnADCreate = new System.Windows.Forms.Button();
             this.cmenuPhones.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage5.SuspendLayout();
@@ -204,26 +207,26 @@
             this.toolStripMenuChange,
             this.toolStripMenuAdd});
             this.cmenuPhones.Name = "cmenuPhones";
-            this.cmenuPhones.Size = new System.Drawing.Size(169, 76);
+            this.cmenuPhones.Size = new System.Drawing.Size(175, 82);
             this.cmenuPhones.Opening += new System.ComponentModel.CancelEventHandler(this.cmenuPhones_Opening);
             this.cmenuPhones.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.cmenuPhones_ItemClicked);
             // 
             // toolStripMenuConfirm
             // 
             this.toolStripMenuConfirm.Name = "toolStripMenuConfirm";
-            this.toolStripMenuConfirm.Size = new System.Drawing.Size(168, 24);
+            this.toolStripMenuConfirm.Size = new System.Drawing.Size(174, 26);
             this.toolStripMenuConfirm.Text = "Подтвердить";
             // 
             // toolStripMenuChange
             // 
             this.toolStripMenuChange.Name = "toolStripMenuChange";
-            this.toolStripMenuChange.Size = new System.Drawing.Size(168, 24);
+            this.toolStripMenuChange.Size = new System.Drawing.Size(174, 26);
             this.toolStripMenuChange.Text = "Изменить";
             // 
             // toolStripMenuAdd
             // 
             this.toolStripMenuAdd.Name = "toolStripMenuAdd";
-            this.toolStripMenuAdd.Size = new System.Drawing.Size(168, 24);
+            this.toolStripMenuAdd.Size = new System.Drawing.Size(174, 26);
             this.toolStripMenuAdd.Text = "Добавить";
             this.toolStripMenuAdd.Click += new System.EventHandler(this.toolStripMenuAdd_Click);
             // 
@@ -348,7 +351,7 @@
             this.lbStaff.Location = new System.Drawing.Point(0, 0);
             this.lbStaff.Margin = new System.Windows.Forms.Padding(0);
             this.lbStaff.Name = "lbStaff";
-            this.lbStaff.Size = new System.Drawing.Size(415, 388);
+            this.lbStaff.Size = new System.Drawing.Size(415, 372);
             this.lbStaff.TabIndex = 8;
             this.lbStaff.SelectedValueChanged += new System.EventHandler(this.lbStaff_SelectedValueChanged);
             this.lbStaff.DoubleClick += new System.EventHandler(this.lbStaff_DoubleClick);
@@ -363,6 +366,19 @@
             this.tabPage13.TabIndex = 1;
             this.tabPage13.Text = "Алфавит";
             this.tabPage13.UseVisualStyleBackColor = true;
+            // 
+            // lbStaffAlpha
+            // 
+            this.lbStaffAlpha.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbStaffAlpha.FormattingEnabled = true;
+            this.lbStaffAlpha.ItemHeight = 16;
+            this.lbStaffAlpha.Location = new System.Drawing.Point(0, 0);
+            this.lbStaffAlpha.Name = "lbStaffAlpha";
+            this.lbStaffAlpha.Size = new System.Drawing.Size(425, 612);
+            this.lbStaffAlpha.TabIndex = 0;
+            this.lbStaffAlpha.SelectedIndexChanged += new System.EventHandler(this.lbStaffAlpha_SelectedIndexChanged);
             // 
             // tabControl1
             // 
@@ -379,7 +395,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(909, 610);
+            this.tabControl1.Size = new System.Drawing.Size(908, 610);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
@@ -414,7 +430,7 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Size = new System.Drawing.Size(901, 581);
+            this.tabPage1.Size = new System.Drawing.Size(900, 581);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Пользователь";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -551,32 +567,32 @@
             this.menuItemDeleteEmail,
             this.menuItemMakeMainEmail});
             this.cmenuEmail.Name = "cmenuEmail";
-            this.cmenuEmail.Size = new System.Drawing.Size(211, 100);
+            this.cmenuEmail.Size = new System.Drawing.Size(217, 108);
             this.cmenuEmail.Opening += new System.ComponentModel.CancelEventHandler(this.cmenuEmail_Opening);
             this.cmenuEmail.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.cmenuEmail_ItemClicked);
             // 
             // menuItemEditEmail
             // 
             this.menuItemEditEmail.Name = "menuItemEditEmail";
-            this.menuItemEditEmail.Size = new System.Drawing.Size(210, 24);
+            this.menuItemEditEmail.Size = new System.Drawing.Size(216, 26);
             this.menuItemEditEmail.Text = "Редактировать";
             // 
             // menuItemAddEmail
             // 
             this.menuItemAddEmail.Name = "menuItemAddEmail";
-            this.menuItemAddEmail.Size = new System.Drawing.Size(210, 24);
+            this.menuItemAddEmail.Size = new System.Drawing.Size(216, 26);
             this.menuItemAddEmail.Text = "Добавить";
             // 
             // menuItemDeleteEmail
             // 
             this.menuItemDeleteEmail.Name = "menuItemDeleteEmail";
-            this.menuItemDeleteEmail.Size = new System.Drawing.Size(210, 24);
+            this.menuItemDeleteEmail.Size = new System.Drawing.Size(216, 26);
             this.menuItemDeleteEmail.Text = "Удалить";
             // 
             // menuItemMakeMainEmail
             // 
             this.menuItemMakeMainEmail.Name = "menuItemMakeMainEmail";
-            this.menuItemMakeMainEmail.Size = new System.Drawing.Size(210, 24);
+            this.menuItemMakeMainEmail.Size = new System.Drawing.Size(216, 26);
             this.menuItemMakeMainEmail.Text = "Сделать основным";
             // 
             // label2
@@ -746,10 +762,13 @@
             // 
             // tabPage8
             // 
+            this.tabPage8.Controls.Add(this.btnADCreate);
+            this.tabPage8.Controls.Add(this.btnADSave);
+            this.tabPage8.Controls.Add(this.tbLogin);
+            this.tabPage8.Controls.Add(this.btnADCheck);
             this.tabPage8.Controls.Add(this.lblPayDoxLogin);
             this.tabPage8.Controls.Add(this.label5);
             this.tabPage8.Controls.Add(this.label4);
-            this.tabPage8.Controls.Add(this.lblLogin);
             this.tabPage8.Controls.Add(this.button6);
             this.tabPage8.Controls.Add(this.lbEmail);
             this.tabPage8.Controls.Add(this.btnAddPassword);
@@ -759,7 +778,7 @@
             this.tabPage8.Location = new System.Drawing.Point(4, 25);
             this.tabPage8.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(901, 581);
+            this.tabPage8.Size = new System.Drawing.Size(900, 581);
             this.tabPage8.TabIndex = 5;
             this.tabPage8.Text = "Служебная";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -793,16 +812,6 @@
             this.label4.Size = new System.Drawing.Size(47, 17);
             this.label4.TabIndex = 31;
             this.label4.Text = "Login:";
-            // 
-            // lblLogin
-            // 
-            this.lblLogin.AutoSize = true;
-            this.lblLogin.Location = new System.Drawing.Point(160, 21);
-            this.lblLogin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(46, 17);
-            this.lblLogin.TabIndex = 30;
-            this.lblLogin.Text = "label4";
             // 
             // button6
             // 
@@ -902,7 +911,7 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Size = new System.Drawing.Size(901, 581);
+            this.tabPage2.Size = new System.Drawing.Size(900, 581);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Оборудование";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -910,7 +919,7 @@
             // button11
             // 
             this.button11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button11.Location = new System.Drawing.Point(681, 524);
+            this.button11.Location = new System.Drawing.Point(680, 524);
             this.button11.Margin = new System.Windows.Forms.Padding(4);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(100, 28);
@@ -922,7 +931,7 @@
             // button7
             // 
             this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button7.Location = new System.Drawing.Point(789, 524);
+            this.button7.Location = new System.Drawing.Point(788, 524);
             this.button7.Margin = new System.Windows.Forms.Padding(4);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(100, 28);
@@ -939,7 +948,7 @@
             this.dgwDevices.Location = new System.Drawing.Point(5, 5);
             this.dgwDevices.Margin = new System.Windows.Forms.Padding(4);
             this.dgwDevices.Name = "dgwDevices";
-            this.dgwDevices.Size = new System.Drawing.Size(889, 489);
+            this.dgwDevices.Size = new System.Drawing.Size(888, 489);
             this.dgwDevices.TabIndex = 0;
             this.dgwDevices.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwDevices_CellDoubleClick);
             // 
@@ -948,7 +957,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(901, 581);
+            this.tabPage3.Size = new System.Drawing.Size(900, 581);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Программы";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -962,7 +971,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
             this.tabPage4.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(901, 581);
+            this.tabPage4.Size = new System.Drawing.Size(900, 581);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Проверки";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -1017,7 +1026,7 @@
             this.tabPage7.Location = new System.Drawing.Point(4, 25);
             this.tabPage7.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(901, 581);
+            this.tabPage7.Size = new System.Drawing.Size(900, 581);
             this.tabPage7.TabIndex = 4;
             this.tabPage7.Text = "Saperion";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -1503,7 +1512,7 @@
             this.dgvIventVSBook.Name = "dgvIventVSBook";
             this.dgvIventVSBook.ReadOnly = true;
             this.dgvIventVSBook.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvIventVSBook.Size = new System.Drawing.Size(1388, 266);
+            this.dgvIventVSBook.Size = new System.Drawing.Size(1388, 265);
             this.dgvIventVSBook.TabIndex = 0;
             this.dgvIventVSBook.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvIventVSBook_CellDoubleClick);
             this.dgvIventVSBook.DoubleClick += new System.EventHandler(this.dgvIventVSBook_DoubleClick);
@@ -1524,18 +1533,43 @@
             this.saveFileDialog1.Filter = "Excel | *.xlsx";
             this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
             // 
-            // lbStaffAlpha
+            // btnADCheck
             // 
-            this.lbStaffAlpha.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbStaffAlpha.FormattingEnabled = true;
-            this.lbStaffAlpha.ItemHeight = 16;
-            this.lbStaffAlpha.Location = new System.Drawing.Point(0, 0);
-            this.lbStaffAlpha.Name = "lbStaffAlpha";
-            this.lbStaffAlpha.Size = new System.Drawing.Size(425, 612);
-            this.lbStaffAlpha.TabIndex = 0;
-            this.lbStaffAlpha.SelectedIndexChanged += new System.EventHandler(this.lbStaffAlpha_SelectedIndexChanged);
+            this.btnADCheck.Location = new System.Drawing.Point(445, 14);
+            this.btnADCheck.Name = "btnADCheck";
+            this.btnADCheck.Size = new System.Drawing.Size(96, 27);
+            this.btnADCheck.TabIndex = 34;
+            this.btnADCheck.Text = "Проверить";
+            this.btnADCheck.UseVisualStyleBackColor = true;
+            this.btnADCheck.Click += new System.EventHandler(this.btnADCheck_Click);
+            // 
+            // tbLogin
+            // 
+            this.tbLogin.Location = new System.Drawing.Point(144, 16);
+            this.tbLogin.Name = "tbLogin";
+            this.tbLogin.Size = new System.Drawing.Size(253, 22);
+            this.tbLogin.TabIndex = 35;
+            this.tbLogin.TextChanged += new System.EventHandler(this.tbLogin_TextChanged);
+            // 
+            // btnADSave
+            // 
+            this.btnADSave.Location = new System.Drawing.Point(445, 47);
+            this.btnADSave.Name = "btnADSave";
+            this.btnADSave.Size = new System.Drawing.Size(96, 27);
+            this.btnADSave.TabIndex = 36;
+            this.btnADSave.Text = "Сохранить";
+            this.btnADSave.UseVisualStyleBackColor = true;
+            this.btnADSave.Click += new System.EventHandler(this.btnADSave_Click);
+            // 
+            // btnADCreate
+            // 
+            this.btnADCreate.Location = new System.Drawing.Point(445, 80);
+            this.btnADCreate.Name = "btnADCreate";
+            this.btnADCreate.Size = new System.Drawing.Size(96, 27);
+            this.btnADCreate.TabIndex = 37;
+            this.btnADCreate.Text = "Создать";
+            this.btnADCreate.UseVisualStyleBackColor = true;
+            this.btnADCreate.Click += new System.EventHandler(this.btnADCreate_Click);
             // 
             // MainForm
             // 
@@ -1664,7 +1698,6 @@
         private System.Windows.Forms.Label lblPayDoxLogin;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label lblLogin;
         private System.Windows.Forms.Label lblMainEmail;
         private System.Windows.Forms.TabPage tabPage9;
         private System.Windows.Forms.TabPage tabPage10;
@@ -1718,6 +1751,10 @@
         private System.Windows.Forms.TreeView tvDepartments;
         private System.Windows.Forms.ListBox lbStaff;
         private System.Windows.Forms.ListBox lbStaffAlpha;
+        private System.Windows.Forms.TextBox tbLogin;
+        private System.Windows.Forms.Button btnADCheck;
+        private System.Windows.Forms.Button btnADCreate;
+        private System.Windows.Forms.Button btnADSave;
 
     }
 }
