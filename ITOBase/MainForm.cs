@@ -324,7 +324,7 @@ namespace ITOBase
 
             dtpBirthDay.Text = staff[0]["Birthday"].ToString();
 
-            DataTable dt = m_ITOSQLCommand.ExecuteSQLCommand("Select dbo.GetUserFIOfromStaff(dep.ChiefID),dep.ShortName,dep.Name, pos.Name,dbo.GetBuildingName(stf.WorkPlace),dbo.GetStaffState(stf.State), stf.Login, stf.PayDoxLogin, dbo.GetEmailByID(stf.emailID) from stfOrgStructure dep, stfPositions pos ,  Staff stf" +
+            DataTable dt = m_ITOSQLCommand.ExecuteSQLCommand("Select dbo.GetUserFIOfromStaff(dep.ChiefID),dep.ShortName,dep.Name, pos.Name,dbo.GetBuildingName(stf.WorkPlace),dbo.GetStaffState(stf.State), stf.Login, stf.PayDoxLogin, dbo.GetEmailByID(stf.emailID), GKLogin, UserID from stfOrgStructure dep, stfPositions pos ,  Staff stf" +
                 " where dep.DepartmentID = stf.DepartmentID and pos.PositionID = stf.PositionID and stf.UserID=" + _UserID);
 
 
@@ -347,8 +347,14 @@ namespace ITOBase
                 else
                     lblPayDoxLogin.Text = dt.Rows[0][6].ToString();
 
-                lblMainEmail.Text = lblPayDoxLogin.Text = dt.Rows[0][8].ToString();
+                lblMainEmail.Text = dt.Rows[0][8].ToString();
+                    
+               
 
+                txbGKLogin.Text = dt.Rows[0][9].ToString();
+
+                lblUserID.Text = dt.Rows[0][10].ToString();
+                
                 //Заполняем список телефонов
 
                 FillPhones(_UserID);
@@ -1768,6 +1774,24 @@ namespace ITOBase
         private void btnADCreate_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void BtnDeleteUser_Click(object sender, EventArgs e)
+        {
+            try
+                {
+                    m_ITOSQLCommand.ExecuteSQLNotQuery(string.Format("delete from Staff where UserID= '{0}'", m_SelectedUserIdx.ToString()));                      
+                
+                                                                                                   
+               
+                
+                }
+
+                catch (SystemException ex)
+                {
+                }
+                   
+
         }
 
 
