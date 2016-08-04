@@ -1807,8 +1807,172 @@ namespace ITOBase
 
         }
 
+        private void button13_Click(object sender, EventArgs e)
+        {
+           var word = new Word.Application();
+
+           word.Visible = true;
+
+           object FileName = Application.StartupPath + "\\"+@"Форма № R7.CLB.1.docx";
+          
+           object ConfirmConversions = false;
+           object ReadOnly = false;
+           object AddToRecentFiles = false;
+           object PasswordDocument = "";
+           object PasswordTemplate = "";
+           object Revert = true;
+           object WritePasswordDocument = "";
+           object WritePasswordTemplate = "";
+           object Format = Word.WdOpenFormat.wdOpenFormatAuto;
+           object Encoding = Type.Missing;
+           object Visible = true;
+           object OpenAndRepair = false;
+           object DocumentDirection = Word.WdDocumentDirection.wdLeftToRight;
+           object NoEncodingDialog = true;
+           object XMLTransform = Type.Missing;
+
+           Word.Document doc = word.Documents.Open(ref FileName,
+                                              ref ConfirmConversions,
+                                              ref ReadOnly,
+                                              ref AddToRecentFiles,
+                                              ref PasswordDocument,
+                                              ref PasswordTemplate,
+                                              ref Revert,
+                                              ref WritePasswordDocument,
+                                              ref WritePasswordTemplate,
+                                              ref Format,
+                                              ref Encoding,
+                                              ref Visible,
+                                              ref OpenAndRepair,
+                                              ref DocumentDirection,
+                                              ref NoEncodingDialog,
+                                              ref XMLTransform);
+
+           object docnum = 1;
+           
+            word.Documents.get_Item(ref docnum).Activate();
+            
+            
+            
+           object oBookmark = "FIO";
+
+           if (word.ActiveDocument.Bookmarks.Exists(oBookmark.ToString()))
+
+           word.ActiveDocument.Bookmarks.get_Item(ref oBookmark).Range.Text = txbLastName.Text+" "+txbName.Text+" "+txbSecondName.Text;
+
+           oBookmark = "DATA";
+
+           if (word.ActiveDocument.Bookmarks.Exists(oBookmark.ToString()))
+
+               word.ActiveDocument.Bookmarks.get_Item(ref oBookmark).Range.Text = DateTime.Now.ToString("dd MMMM yyyy");
+
+           oBookmark = "Department";
+
+           if (word.ActiveDocument.Bookmarks.Exists(oBookmark.ToString()))
+
+               word.ActiveDocument.Bookmarks.get_Item(ref oBookmark).Range.Text = cbDepartment.Text;
+
+           oBookmark = "email";
+
+           if (word.ActiveDocument.Bookmarks.Exists(oBookmark.ToString()))
+
+               word.ActiveDocument.Bookmarks.get_Item(ref oBookmark).Range.Text = lblMainEmail.Text;
 
 
+           oBookmark = "GKLogin";
+
+           if (word.ActiveDocument.Bookmarks.Exists(oBookmark.ToString()))
+
+               word.ActiveDocument.Bookmarks.get_Item(ref oBookmark).Range.Text = txbGKLogin.Text;
+
+           oBookmark = "Position";
+
+           if (word.ActiveDocument.Bookmarks.Exists(oBookmark.ToString()))
+
+               word.ActiveDocument.Bookmarks.get_Item(ref oBookmark).Range.Text = cbPosition.Text;
+
+/*
+           oBookmark = "SubsriberFIO";
+
+           if (word.ActiveDocument.Bookmarks.Exists(oBookmark.ToString()))
+
+               word.ActiveDocument.Bookmarks.get_Item(ref oBookmark).Range.Text = "Курятов Алексей Викторович";
+
+           oBookmark = "SubsriberPos";
+
+           if (word.ActiveDocument.Bookmarks.Exists(oBookmark.ToString()))
+
+               word.ActiveDocument.Bookmarks.get_Item(ref oBookmark).Range.Text = "Первый заместитель Генерального директора - Технический директор,главный конструктор";
+            
+            // word.Selection.Range.Text = "Иванов Иван ПЕтрович";
+            */
+            
+           //doc.Bookmarks
+
+
+
+            /*  Dim wordApp As Object
+    Dim wordDoc As Objectg
+    
+    
+    
+    Set wordApp = New Word.Application
+    
+    
+    wordApp.Visible = True
+    
+    Set wordDoc = wordApp.Documents.Open("q:\IT\Private\Äîêóìåíòû\Íîâûå ïîëüçîâàòåëè\!!!Øàáëîí!!!.docx")
+    
+    
+    wordDoc.Bookmarks("FullName").Select
+    
+    wordApp.Selection.Range.Text = DelNoPrintSimbols(Cells(ActiveCell.Row, 1).Value)
+    
+    
+    wordDoc.Bookmarks("email").Select
+    
+    wordApp.Selection.TypeText Text:=DelNoPrintSimbols(Cells(ActiveCell.Row, 8).Value)
+    
+    wordDoc.Bookmarks("email_password").Select
+    
+    wordApp.Selection.TypeText Text:=DelNoPrintSimbols(Cells(ActiveCell.Row, 14).Value)
+    
+    
+    wordDoc.Bookmarks("ad_user").Select
+    
+    wordApp.Selection.TypeText Text:=DelNoPrintSimbols(Cells(ActiveCell.Row, 4).Value)
+    
+    
+    wordDoc.Bookmarks("ad_password").Select
+    
+    wordApp.Selection.TypeText Text:=DelNoPrintSimbols(Cells(ActiveCell.Row, 13).Value)
+    
+    wordDoc.Bookmarks("paydox_user").Select
+    
+    wordApp.Selection.TypeText Text:=DelNoPrintSimbols(Cells(ActiveCell.Row, 4).Value)
+             
+    
+    wordDoc.Bookmarks("paydox_password").Select
+    
+    wordApp.Selection.TypeText Text:=DelNoPrintSimbols(Cells(ActiveCell.Row, 15).Value)
+    
+    
+             * 
+    
+
+    wordDoc.SaveAs ("q:\IT\Private\Äîêóìåíòû\Íîâûå ïîëüçîâàòåëè\" + DelNoPrintSimbols(Cells(ActiveCell.Row, 4).Value))
+    
+    wordDoc.Close
+    
+    wordApp.Quit
+              */
+
+
+
+
+        }
+
+           
 
     } 
 
