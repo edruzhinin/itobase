@@ -491,6 +491,19 @@ namespace ITOBase
 
             }
 
+            if (e.ClickedItem.Name == "toolStripMenuAdd")
+            {
+
+                string str = string.Format("update Phones set Type = - Type, ChangerID = {0} where PhoneID = {1}",
+                                    m_ProgramUserIdx.ToString(),
+                                    (lbPhones.Items[lbPhones.SelectedIndex] as ListElement).Index.ToString());
+                m_ITOSQLCommand.ExecuteSQLNotQuery(str);
+
+
+
+
+            }
+
             //Считываем телефоны заново
             FillPhones((lbStaff.SelectedItem as ListElement).Index);
 

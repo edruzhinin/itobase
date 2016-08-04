@@ -74,6 +74,12 @@
     <Compile Include="ChangeEmail.Designer.cs">
       <DependentUpon>ChangeEmail.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChangePhone.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangePhone.Designer.cs">
+      <DependentUpon>ChangePhone.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChangeUserForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +105,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ChangeEmail.resx">
       <DependentUpon>ChangeEmail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangePhone.resx">
+      <DependentUpon>ChangePhone.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChangeUserForm.resx">
       <DependentUpon>ChangeUserForm.cs</DependentUpon>
