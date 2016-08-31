@@ -46,6 +46,8 @@
             this.lbStaffAlpha = new System.Windows.Forms.ListBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.txbTabNo = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
             this.btnCreateUser = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.lblMainEmail = new System.Windows.Forms.Label();
@@ -80,6 +82,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dtpBirthDay = new System.Windows.Forms.DateTimePicker();
             this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.button13 = new System.Windows.Forms.Button();
             this.BtnDeleteUser = new System.Windows.Forms.Button();
             this.lblUserID = new System.Windows.Forms.Label();
             this.txbGKLogin = new System.Windows.Forms.TextBox();
@@ -155,7 +158,7 @@
             this.dgvIventVSBook = new System.Windows.Forms.DataGridView();
             this.tabPage11 = new System.Windows.Forms.TabPage();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.button13 = new System.Windows.Forms.Button();
+            this.button14 = new System.Windows.Forms.Button();
             this.cmenuPhones.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage5.SuspendLayout();
@@ -399,6 +402,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.txbTabNo);
+            this.tabPage1.Controls.Add(this.label24);
             this.tabPage1.Controls.Add(this.btnCreateUser);
             this.tabPage1.Controls.Add(this.btnDelete);
             this.tabPage1.Controls.Add(this.lblMainEmail);
@@ -431,6 +436,22 @@
             this.tabPage1.Text = "Пользователь";
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // txbTabNo
+            // 
+            this.txbTabNo.Location = new System.Drawing.Point(395, 72);
+            this.txbTabNo.Name = "txbTabNo";
+            this.txbTabNo.Size = new System.Drawing.Size(80, 20);
+            this.txbTabNo.TabIndex = 33;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(346, 78);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(43, 13);
+            this.label24.TabIndex = 32;
+            this.label24.Text = "Таб. №";
             // 
             // btnCreateUser
             // 
@@ -727,6 +748,7 @@
             // 
             // tabPage8
             // 
+            this.tabPage8.Controls.Add(this.button14);
             this.tabPage8.Controls.Add(this.button13);
             this.tabPage8.Controls.Add(this.BtnDeleteUser);
             this.tabPage8.Controls.Add(this.lblUserID);
@@ -752,6 +774,16 @@
             this.tabPage8.TabIndex = 5;
             this.tabPage8.Text = "Служебная";
             this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // button13
+            // 
+            this.button13.Location = new System.Drawing.Point(548, 265);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(101, 31);
+            this.button13.TabIndex = 43;
+            this.button13.Text = "Увеличить";
+            this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // BtnDeleteUser
             // 
@@ -1509,15 +1541,15 @@
             this.saveFileDialog1.Filter = "Excel | *.xlsx";
             this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
             // 
-            // button13
+            // button14
             // 
-            this.button13.Location = new System.Drawing.Point(520, 311);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(101, 31);
-            this.button13.TabIndex = 43;
-            this.button13.Text = "button13";
-            this.button13.UseVisualStyleBackColor = true;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
+            this.button14.Location = new System.Drawing.Point(548, 303);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(101, 27);
+            this.button14.TabIndex = 44;
+            this.button14.Text = "Удалить";
+            this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
             // MainForm
             // 
@@ -1705,6 +1737,9 @@
         private System.Windows.Forms.Button BtnDeleteUser;
         private System.Windows.Forms.ToolStripMenuItem tsMenuItemDeletePass;
         private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.TextBox txbTabNo;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Button button14;
 
     }
 }

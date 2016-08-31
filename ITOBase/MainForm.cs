@@ -324,7 +324,7 @@ namespace ITOBase
 
             dtpBirthDay.Text = staff[0]["Birthday"].ToString();
 
-            DataTable dt = m_ITOSQLCommand.ExecuteSQLCommand("Select dbo.GetUserFIOfromStaff(dep.ChiefID),dep.ShortName,dep.Name, pos.Name,dbo.GetBuildingName(stf.WorkPlace),dbo.GetStaffState(stf.State), stf.Login, stf.PayDoxLogin, dbo.GetEmailByID(stf.emailID), GKLogin, UserID from stfOrgStructure dep, stfPositions pos ,  Staff stf" +
+            DataTable dt = m_ITOSQLCommand.ExecuteSQLCommand("Select dbo.GetUserFIOfromStaff(dep.ChiefID),dep.ShortName,dep.Name, pos.Name,dbo.GetBuildingName(stf.WorkPlace),dbo.GetStaffState(stf.State), stf.Login, stf.PayDoxLogin, dbo.GetEmailByID(stf.emailID), GKLogin, UserID, TbNo from stfOrgStructure dep, stfPositions pos ,  Staff stf" +
                 " where dep.DepartmentID = stf.DepartmentID and pos.PositionID = stf.PositionID and stf.UserID=" + _UserID);
 
 
@@ -354,7 +354,8 @@ namespace ITOBase
                 txbGKLogin.Text = dt.Rows[0][9].ToString();
 
                 lblUserID.Text = dt.Rows[0][10].ToString();
-                
+
+                txbTabNo.Text = dt.Rows[0][11].ToString();
                 //Заполняем список телефонов
 
                 FillPhones(_UserID);
@@ -1970,6 +1971,86 @@ namespace ITOBase
 
 
 
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            var word = new Word.Application();
+
+            word.Visible = true;
+
+            object FileName = Application.StartupPath + "\\" + @"Форма № R1.CLB.1.docx";
+
+            object ConfirmConversions = false;
+            object ReadOnly = false;
+            object AddToRecentFiles = false;
+            object PasswordDocument = "";
+            object PasswordTemplate = "";
+            object Revert = true;
+            object WritePasswordDocument = "";
+            object WritePasswordTemplate = "";
+            object Format = Word.WdOpenFormat.wdOpenFormatAuto;
+            object Encoding = Type.Missing;
+            object Visible = true;
+            object OpenAndRepair = false;
+            object DocumentDirection = Word.WdDocumentDirection.wdLeftToRight;
+            object NoEncodingDialog = true;
+            object XMLTransform = Type.Missing;
+
+            Word.Document doc = word.Documents.Open(ref FileName,
+                                               ref ConfirmConversions,
+                                               ref ReadOnly,
+                                               ref AddToRecentFiles,
+                                               ref PasswordDocument,
+                                               ref PasswordTemplate,
+                                               ref Revert,
+                                               ref WritePasswordDocument,
+                                               ref WritePasswordTemplate,
+                                               ref Format,
+                                               ref Encoding,
+                                               ref Visible,
+                                               ref OpenAndRepair,
+                                               ref DocumentDirection,
+                                               ref NoEncodingDialog,
+                                               ref XMLTransform);
+
+            object docnum = 1;
+
+            word.Documents.get_Item(ref docnum).Activate();
+
+
+
+            object oBookmark = "FIO";
+
+            if (word.ActiveDocument.Bookmarks.Exists(oBookmark.ToString()))
+
+                word.ActiveDocument.Bookmarks.get_Item(ref oBookmark).Range.Text = txbLastName.Text + " " + txbName.Text + " " + txbSecondName.Text;
+
+            
+            oBookmark = "Department";
+
+            if (word.ActiveDocument.Bookmarks.Exists(oBookmark.ToString()))
+
+                word.ActiveDocument.Bookmarks.get_Item(ref oBookmark).Range.Text = cbDepartment.Text;
+
+            oBookmark = "email";
+
+            if (word.ActiveDocument.Bookmarks.Exists(oBookmark.ToString()))
+
+                word.ActiveDocument.Bookmarks.get_Item(ref oBookmark).Range.Text = lblMainEmail.Text;
+
+
+            oBookmark = "GKLogin";
+
+            if (word.ActiveDocument.Bookmarks.Exists(oBookmark.ToString()))
+
+                word.ActiveDocument.Bookmarks.get_Item(ref oBookmark).Range.Text = txbGKLogin.Text;
+
+            oBookmark = "Position";
+
+            if (word.ActiveDocument.Bookmarks.Exists(oBookmark.ToString()))
+
+                word.ActiveDocument.Bookmarks.get_Item(ref oBookmark).Range.Text = cbPosition.Text;
         }
 
            

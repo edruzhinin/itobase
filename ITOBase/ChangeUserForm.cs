@@ -631,6 +631,43 @@ namespace ITOBase
         {
             btnEmailFromLogin.Enabled = true;
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //создаем подключение
+            SmtpClient client = new SmtpClient("mx.rosatom.ru", 25);
+            client.Credentials = new NetworkCredential("EvVDruzhinin@rasu.ru", "829GLWcb3");
+
+            //От кого письмо
+            string from = "EvVDruzhinin@rasu.ru";
+            //Кому письмо
+            string to = "DLKlipp@rasu.ru";
+            //Тема письма
+            string subject = "Новый почтовый ящик";
+            //Текст письма
+            string body = "Здравствуйте! \n\nПрошу создать почтовый ящик:\n" + txbEmail.Text;
+
+            //Создаем сообщение
+            MailMessage mess = new MailMessage(from, to, subject, body);
+
+
+            mess.CC.Add("druzhinin@vniiaes-asutp.ru");
+
+
+            try
+            {
+                client.Send(mess);
+
+            }
+            catch (Exception ex)
+            {
+                cbLog.Items.Add("Отправка запроса на email завершена c ошибкой " + ex.Message.ToString());
+                cbLog.SelectedIndex = cbLog.Items.Count - 1;
+                
+            }
+
+
+        }
     }
 
     
