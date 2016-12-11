@@ -46,6 +46,8 @@
             this.lbStaffAlpha = new System.Windows.Forms.ListBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.txbGKLogin = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
             this.txbTabNo = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.btnCreateUser = new System.Windows.Forms.Button();
@@ -157,8 +159,7 @@
             this.dgvIventVSBook = new System.Windows.Forms.DataGridView();
             this.tabPage11 = new System.Windows.Forms.TabPage();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.label23 = new System.Windows.Forms.Label();
-            this.txbGKLogin = new System.Windows.Forms.TextBox();
+            this.button15 = new System.Windows.Forms.Button();
             this.cmenuPhones.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage5.SuspendLayout();
@@ -360,7 +361,7 @@
             this.lbStaff.Location = new System.Drawing.Point(0, 0);
             this.lbStaff.Margin = new System.Windows.Forms.Padding(0);
             this.lbStaff.Name = "lbStaff";
-            this.lbStaff.Size = new System.Drawing.Size(415, 340);
+            this.lbStaff.Size = new System.Drawing.Size(415, 324);
             this.lbStaff.TabIndex = 8;
             this.lbStaff.SelectedValueChanged += new System.EventHandler(this.lbStaff_SelectedValueChanged);
             this.lbStaff.DoubleClick += new System.EventHandler(this.lbStaff_DoubleClick);
@@ -406,7 +407,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(907, 610);
+            this.tabControl1.Size = new System.Drawing.Size(906, 610);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
@@ -445,11 +446,30 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Size = new System.Drawing.Size(899, 581);
+            this.tabPage1.Size = new System.Drawing.Size(898, 581);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Пользователь";
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // txbGKLogin
+            // 
+            this.txbGKLogin.Location = new System.Drawing.Point(115, 360);
+            this.txbGKLogin.Margin = new System.Windows.Forms.Padding(4);
+            this.txbGKLogin.Name = "txbGKLogin";
+            this.txbGKLogin.Size = new System.Drawing.Size(114, 22);
+            this.txbGKLogin.TabIndex = 41;
+            this.txbGKLogin.TextChanged += new System.EventHandler(this.txbGKLogin_TextChanged);
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(40, 363);
+            this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(67, 17);
+            this.label23.TabIndex = 40;
+            this.label23.Text = "Login GK";
             // 
             // txbTabNo
             // 
@@ -795,6 +815,7 @@
             // 
             // tabPage8
             // 
+            this.tabPage8.Controls.Add(this.button15);
             this.tabPage8.Controls.Add(this.button14);
             this.tabPage8.Controls.Add(this.button13);
             this.tabPage8.Controls.Add(this.BtnDeleteUser);
@@ -816,7 +837,7 @@
             this.tabPage8.Location = new System.Drawing.Point(4, 25);
             this.tabPage8.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(899, 581);
+            this.tabPage8.Size = new System.Drawing.Size(898, 581);
             this.tabPage8.TabIndex = 5;
             this.tabPage8.Text = "Служебная";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -1032,7 +1053,7 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Size = new System.Drawing.Size(899, 581);
+            this.tabPage2.Size = new System.Drawing.Size(898, 581);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Оборудование";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -1040,7 +1061,7 @@
             // button11
             // 
             this.button11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button11.Location = new System.Drawing.Point(679, 523);
+            this.button11.Location = new System.Drawing.Point(678, 523);
             this.button11.Margin = new System.Windows.Forms.Padding(4);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(100, 28);
@@ -1052,7 +1073,7 @@
             // button7
             // 
             this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button7.Location = new System.Drawing.Point(787, 523);
+            this.button7.Location = new System.Drawing.Point(786, 523);
             this.button7.Margin = new System.Windows.Forms.Padding(4);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(100, 28);
@@ -1069,7 +1090,7 @@
             this.dgwDevices.Location = new System.Drawing.Point(5, 5);
             this.dgwDevices.Margin = new System.Windows.Forms.Padding(4);
             this.dgwDevices.Name = "dgwDevices";
-            this.dgwDevices.Size = new System.Drawing.Size(887, 489);
+            this.dgwDevices.Size = new System.Drawing.Size(886, 489);
             this.dgwDevices.TabIndex = 0;
             this.dgwDevices.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwDevices_CellDoubleClick);
             // 
@@ -1078,7 +1099,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(899, 581);
+            this.tabPage3.Size = new System.Drawing.Size(898, 581);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Программы";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -1092,7 +1113,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
             this.tabPage4.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(899, 581);
+            this.tabPage4.Size = new System.Drawing.Size(898, 581);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Проверки";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -1147,7 +1168,7 @@
             this.tabPage7.Location = new System.Drawing.Point(4, 25);
             this.tabPage7.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(899, 581);
+            this.tabPage7.Size = new System.Drawing.Size(898, 581);
             this.tabPage7.TabIndex = 4;
             this.tabPage7.Text = "Saperion";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -1633,7 +1654,7 @@
             this.dgvIventVSBook.Name = "dgvIventVSBook";
             this.dgvIventVSBook.ReadOnly = true;
             this.dgvIventVSBook.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvIventVSBook.Size = new System.Drawing.Size(1388, 263);
+            this.dgvIventVSBook.Size = new System.Drawing.Size(1388, 262);
             this.dgvIventVSBook.TabIndex = 0;
             this.dgvIventVSBook.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvIventVSBook_CellDoubleClick);
             this.dgvIventVSBook.DoubleClick += new System.EventHandler(this.dgvIventVSBook_DoubleClick);
@@ -1654,24 +1675,15 @@
             this.saveFileDialog1.Filter = "Excel | *.xlsx";
             this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
             // 
-            // label23
+            // button15
             // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(40, 363);
-            this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(67, 17);
-            this.label23.TabIndex = 40;
-            this.label23.Text = "Login GK";
-            // 
-            // txbGKLogin
-            // 
-            this.txbGKLogin.Location = new System.Drawing.Point(115, 360);
-            this.txbGKLogin.Margin = new System.Windows.Forms.Padding(4);
-            this.txbGKLogin.Name = "txbGKLogin";
-            this.txbGKLogin.Size = new System.Drawing.Size(114, 22);
-            this.txbGKLogin.TabIndex = 41;
-            this.txbGKLogin.TextChanged += new System.EventHandler(this.txbGKLogin_TextChanged);
+            this.button15.Location = new System.Drawing.Point(731, 272);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(135, 47);
+            this.button15.TabIndex = 45;
+            this.button15.Text = "Удаленный доступ";
+            this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
             // MainForm
             // 
@@ -1863,6 +1875,7 @@
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.TextBox txbGKLogin;
         private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Button button15;
 
     }
 }

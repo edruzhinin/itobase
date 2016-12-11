@@ -71,6 +71,7 @@ namespace ITOCommon
         private string m_FirstName;
         private string m_SecondName;
         private string m_LastName;
+        private string m_Initials;
 
         public static string PhoneTypeToStr(ePhoneTypes _PhoneType)
         {
@@ -132,6 +133,7 @@ namespace ITOCommon
             m_LastName = m_FullName.Substring(0, firstSpc).Trim();
             m_FirstName = m_FullName.Substring(firstSpc + 1, secondSpc - firstSpc - 1).Trim();
             m_SecondName = m_FullName.Substring(secondSpc + 1, m_FullName.Length - secondSpc - 1).Trim();
+            m_Initials = m_FirstName[0] + "." + m_SecondName[0] + ".";
 
 
         }
@@ -146,6 +148,11 @@ namespace ITOCommon
         public string GetLastName()
         {
             return m_LastName;
+        }
+
+        public string GetFIOBrief()
+        {
+            return m_LastName+" "+m_Initials;
         }
 
         static public string TranslitChar(string chRus)
