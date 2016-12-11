@@ -39,6 +39,7 @@ namespace ITOBase
         bool m_PositionChanged;
         bool m_PlaceChanged;
         bool m_RoomChanged;
+        bool m_GKLoginChanged;
 
         TableAdapterManager m_TableAdapterManager;
         dsITO.StaffDataTable m_StaffTbl;
@@ -957,6 +958,17 @@ namespace ITOBase
                 strSQL += "WorkRoom='" + txtbWorkRoom.Text + "'";
             }
 
+            if (m_GKLoginChanged)
+            {
+                if (!firstUpdate)    //если не первое изменяемое поле, то необходимо доабвить запятую перед
+                {
+                    strSQL += ", ";
+                }
+                else
+                    firstUpdate = false;
+
+                strSQL += "GKLogin='" + txbGKLogin.Text + "'";
+            }
 
 
             strSQL += ", LastChangeID ='" + m_ProgramUserIdx.ToString() + "',CreateTime = GETDATE(), Bitrix='1' where UserID ='" + m_SelectedUserIdx.ToString() + "'";
@@ -2051,6 +2063,12 @@ namespace ITOBase
             if (word.ActiveDocument.Bookmarks.Exists(oBookmark.ToString()))
 
                 word.ActiveDocument.Bookmarks.get_Item(ref oBookmark).Range.Text = cbPosition.Text;
+        }
+
+        private void txbGKLogin_TextChanged(object sender, EventArgs e)
+        {
+            m_GKLoginChanged = true;
+            btnSave.Visible = true;
         }
 
            

@@ -286,44 +286,6 @@ namespace ITOBase
         
         private bool AskEmailfromStarlines(string _email)
         {
-            if (checkBoxNotCheckEmail.Checked)
-            {
-                cbLog.Items.Add("Отправка запроса на сервер пропущена");
-                cbLog.SelectedIndex = cbLog.Items.Count - 1;
-                return true;
-            }
-            //создаем подключение
-            SmtpClient client = new SmtpClient("rambutan.vniiaes-asutp.ru", 25);
-            client.Credentials = new NetworkCredential("druzhinin@vniiaes-asutp.ru", "Gg3RYPOC");
- 
-            //От кого письмо
-            string from = "druzhinin@vniiaes-asutp.ru";
-            //Кому письмо
-            string to = "krukov@vniiaes.ru";
-            //Тема письма
-            string subject = "Новый почтовый ящик";
-            //Текст письма
-            string body = "Здравствуйте! \n\nПрошу создать почтовый ящик:\n" + txbEmail.Text;
- 
-            //Создаем сообщение
-            MailMessage mess = new MailMessage(from, to, subject, body);
-
-           
-            mess.CC.Add("bushuev@vniiaes.ru");
-
- 
-            try
-            {
-                client.Send(mess);
-                
-            }
-            catch(Exception ex)
-            {
-                cbLog.Items.Add("Отправка запроса на email завершена c ошибкой "+ex.Message.ToString());
-                cbLog.SelectedIndex = cbLog.Items.Count - 1;
-                return false;
-            }
-
             
 
             
@@ -632,42 +594,7 @@ namespace ITOBase
             btnEmailFromLogin.Enabled = true;
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            //создаем подключение
-            SmtpClient client = new SmtpClient("mx.rosatom.ru", 25);
-            client.Credentials = new NetworkCredential("EvVDruzhinin@rasu.ru", "829GLWcb3");
-
-            //От кого письмо
-            string from = "EvVDruzhinin@rasu.ru";
-            //Кому письмо
-            string to = "DLKlipp@rasu.ru";
-            //Тема письма
-            string subject = "Новый почтовый ящик";
-            //Текст письма
-            string body = "Здравствуйте! \n\nПрошу создать почтовый ящик:\n" + txbEmail.Text;
-
-            //Создаем сообщение
-            MailMessage mess = new MailMessage(from, to, subject, body);
-
-
-            mess.CC.Add("druzhinin@vniiaes-asutp.ru");
-
-
-            try
-            {
-                client.Send(mess);
-
-            }
-            catch (Exception ex)
-            {
-                cbLog.Items.Add("Отправка запроса на email завершена c ошибкой " + ex.Message.ToString());
-                cbLog.SelectedIndex = cbLog.Items.Count - 1;
-                
-            }
-
-
-        }
+        
     }
 
     
