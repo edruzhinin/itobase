@@ -130,6 +130,10 @@ namespace ITOCommon
             int firstSpc = m_FullName.IndexOf(" ");
             int secondSpc = m_FullName.IndexOf(" ", firstSpc + 1);
 
+            //TODO  Необходимо уточнить
+            if ((firstSpc < 0) || (secondSpc < 0))
+                return;
+
             m_LastName = m_FullName.Substring(0, firstSpc).Trim();
             m_FirstName = m_FullName.Substring(firstSpc + 1, secondSpc - firstSpc - 1).Trim();
             m_SecondName = m_FullName.Substring(secondSpc + 1, m_FullName.Length - secondSpc - 1).Trim();

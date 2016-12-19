@@ -17,6 +17,7 @@ using Excel = Microsoft.Office.Interop.Excel;
 using Word = Microsoft.Office.Interop.Word;
 using ITOCommon;
 using InventHelper;
+using System.Threading;
 
 namespace ITOBase
 {
@@ -2126,7 +2127,9 @@ namespace ITOBase
 
             object docnum = 1;
 
-            //word.Documents.get_Item(ref docnum).Activate();
+            Thread.Sleep(3000);
+
+            word.Documents.get_Item(ref docnum).Activate();
 
 
 
