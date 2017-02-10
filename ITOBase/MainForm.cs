@@ -2301,7 +2301,21 @@ namespace ITOBase
             //cell(2,1) вторая строка первый столбец
             word.ActiveDocument.Tables[3].Cell(2, 1).Range.Text = "Тест";
 
-            
+          //  for (int i = 1; i < dgwDevices.ColumnCount; i++)
+
+            for (int j = 0; j < dgwDevices.RowCount - 1; j++)
+                {
+                if (j + 1 > word.ActiveDocument.Tables[3].Rows.Count)
+                        word.ActiveDocument.Tables[3].Rows.Add();
+                word.ActiveDocument.Tables[3].Cell(j + 2 , 1).Range.Text = (j+1).ToString();
+                word.ActiveDocument.Tables[3].Cell(j + 2, 2).Range.Text = dgwDevices[1, j].Value.ToString()+" "+dgwDevices[2, j].Value.ToString();
+                word.ActiveDocument.Tables[3].Cell(j + 2, 3).Range.Text = dgwDevices[5, j].Value.ToString();
+                word.ActiveDocument.Tables[3].Cell(j + 2, 4).Range.Text = dgwDevices[4, j].Value.ToString();
+                word.ActiveDocument.Tables[3].Cell(j + 2, 5).Range.Text = "1";
+
+
+              
+                }
 
            
         
