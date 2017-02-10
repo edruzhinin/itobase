@@ -486,6 +486,9 @@ namespace ITOBase
         private void cmenuPhones_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+            if (lbPhones.SelectedIndex < 0)
+                return;
+
             if (e.ClickedItem.Name == "toolStripMenuChange")
             {
                 MessageBox.Show("Изменить");
