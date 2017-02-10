@@ -15,12 +15,21 @@ namespace InventHelper
     public partial class Form2 : Form
     {
         bool m_NeedUpdate;
+        bool m_InsertMode;
+
         string m_InventID;
+
+        public void SetInsertMode()
+        {
+            m_InsertMode = true;
+
+        }
         
         public Form2()
         {
             InitializeComponent();
             m_NeedUpdate = false;
+            m_InsertMode = false;
         }
 
         public void ReadDataFromBookkeeping(string ID)
@@ -152,7 +161,7 @@ namespace InventHelper
                     txbRoom.Enabled = false;
                     txbComment.Enabled = false;
                     cmbState.Enabled = false;
-                    button1.Visible = false;
+                    btnSave.Visible = false;
                         
                 }
             }
@@ -242,7 +251,7 @@ namespace InventHelper
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
             DbProviderFactory df = DbProviderFactories.GetFactory("System.Data.SqlClient");
             using (DbConnection cn = df.CreateConnection())
@@ -274,9 +283,29 @@ namespace InventHelper
 
 
                 }
+                if (m_InsertMode)
+                {
+                    cmd.CommandText = string.Format("insert into Invent (Type,Model,ModelNo,SerialNo,InvNo,[User],Place,Room,CompName,State,UserID,MOL_ID) values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}',dbo.GetUserIdfromFIO('{10}'),dbo.GetUserIdfromFIO('{11}'))",
+                                                    cmbType.Text,
+                                                    txbModel.Text,
+                                                    txbModelNo.Text,
+                                                    txbSerialNo.Text,
+                                                    txbInvNo.Text,
+                                                    cmbUser.Text,
+                                                    cmbPlace.Text,
+                                                    txbRoom.Text,
+                                                    txbComment.Text,
+                                                    cmbState.Text,
+                                                    cmbUser.Text,
+                                                    cbMOL_name.Text);
+                    cmd.ExecuteNonQuery();
+                    Close();
 
 
-                if (m_NeedUpdate)
+                }
+
+                //TODO необходимо уточнить логику
+                if (m_NeedUpdate )
                 {
 
                     cmd.CommandText = string.Format("update  Invent set Type = '{0}',Model = '{1}',ModelNo = '{2}',SerialNo ='{3}',InvNo = '{4}',[User] = '{5}',Place = '{6}',Room = '{7}',CompName = '{8}',State = '{9}', UserID = dbo.GetUserIdfromFIO('{11}'), MOL_ID =  dbo.GetUserIdfromFIO('{12}') where ID = '{10}'",
@@ -345,6 +374,72 @@ namespace InventHelper
 
 
             }
+
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            DbProviderFactory df = DbProviderFactories.GetFactory("System.Data.SqlClient");
+            using (DbConnection cn = df.CreateConnection())
+            {
+
+                cn.ConnectionString = "Data Source=10.15.140.2;Initial Catalog=ITO;User ID=evgeny;Password=ywfaggzu";
+                cn.Open();
+
+                DbCommand cmd = df.CreateCommand();
+
+                cmd.Connection = cn;
+
+                cmd.CommandText = "select ID from Invent where SerialNo = '" + txbSerialNo.Text + "'";
+
+                using (DbDataReader dr = cmd.ExecuteReader())
+                {
+                    if (dr.HasRows)
+                    {
+                        dr.Read();
+                        if (m_NeedUpdate && (dr[0].ToString() != m_InventID))
+                        {
+                            m_NeedUpdate = true;
+                            Form2 fm = new Form2();
+                            fm.ReadDataFromInvent(dr[0].ToString(), true);
+                            fm.ShowDialog();
+                            label13.Text = "Такой серийный номер уже есть";
+                            return;
+                        }
+
+                        
+                        
+                    }
+                    
+                    
+
+
+                }
+
+                if (m_InsertMode)
+                {
+                    cmd.CommandText = string.Format("insert into Invent (Type,Model,ModelNo,SerialNo,InvNo,[User],Place,Room,CompName,State,UserID,MOL_ID) values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}',dbo.GetUserIdfromFIO('{10}'),dbo.GetUserIdfromFIO('{11}'))",
+                                                    cmbType.Text,
+                                                    txbModel.Text,
+                                                    txbModelNo.Text,
+                                                    txbSerialNo.Text,
+                                                    txbInvNo.Text,
+                                                    cmbUser.Text,
+                                                    cmbPlace.Text,
+                                                    txbRoom.Text,
+                                                    txbComment.Text,
+                                                    cmbState.Text,
+                                                    cmbUser.Text,
+                                                    cbMOL_name.Text);
+                    cmd.ExecuteNonQuery();
+                    label13.Text = "Добавлено";
+                    
+
+                }
+
+               
+            }
+
 
         }
     }

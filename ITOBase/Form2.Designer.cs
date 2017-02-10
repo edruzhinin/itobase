@@ -47,12 +47,14 @@
             this.cmbUser = new System.Windows.Forms.ComboBox();
             this.txbRoom = new System.Windows.Forms.TextBox();
             this.txbComment = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.cmbPlace = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.cbMOL_name = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // cmbType
@@ -212,15 +214,15 @@
             this.txbComment.Size = new System.Drawing.Size(483, 20);
             this.txbComment.TabIndex = 21;
             // 
-            // button1
+            // btnSave
             // 
-            this.button1.Location = new System.Drawing.Point(518, 285);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 22;
-            this.button1.Text = "Записать";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnSave.Location = new System.Drawing.Point(518, 285);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 22;
+            this.btnSave.Text = "Записать";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // cmbPlace
             // 
@@ -241,7 +243,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(392, 285);
+            this.button2.Location = new System.Drawing.Point(299, 285);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 25;
@@ -267,17 +269,38 @@
             this.label12.TabIndex = 27;
             this.label12.Text = "МОЛ:";
             // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(428, 285);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.TabIndex = 28;
+            this.btnAdd.Text = "Добавить";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(17, 310);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(41, 13);
+            this.label13.TabIndex = 29;
+            this.label13.Text = "label13";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(605, 332);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.cbMOL_name);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbPlace);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txbComment);
             this.Controls.Add(this.txbRoom);
             this.Controls.Add(this.cmbUser);
@@ -326,11 +349,13 @@
         private System.Windows.Forms.ComboBox cmbUser;
         private System.Windows.Forms.TextBox txbRoom;
         private System.Windows.Forms.TextBox txbComment;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.ComboBox cmbPlace;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox cbMOL_name;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Label label13;
     }
 }

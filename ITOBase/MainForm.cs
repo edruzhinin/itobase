@@ -1538,6 +1538,7 @@ namespace ITOBase
         {
             Form2 InventForm = new Form2();
             
+
             InventForm.ShowDialog();
 
         }
@@ -1582,6 +1583,7 @@ namespace ITOBase
             //dgwDevices.Item["ID",e.RowIndex].ToString();
             //string str = dgvInvent[0, e.RowIndex].Value.ToString();
             //InventForm.ReadDataFromInvent(str);
+            InventForm.SetInsertMode();
             InventForm.ShowDialog();
         }
 
@@ -2197,6 +2199,113 @@ namespace ITOBase
             if (word.ActiveDocument.Bookmarks.Exists(oBookmark.ToString()))
 
                 word.ActiveDocument.Bookmarks.get_Item(ref oBookmark).Range.Text = m_ChiefFIO;
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            //Печать акта передачи
+            var word = new Word.Application();
+
+            word.Visible = true;
+
+            object FileName = Application.StartupPath + "\\" + @"akt.docx";
+
+            object ConfirmConversions = false;
+            object ReadOnly = false;
+            object AddToRecentFiles = false;
+            object PasswordDocument = "";
+            object PasswordTemplate = "";
+            object Revert = true;
+            object WritePasswordDocument = "";
+            object WritePasswordTemplate = "";
+            object Format = Word.WdOpenFormat.wdOpenFormatAuto;
+            object Encoding = Type.Missing;
+            object Visible = true;
+            object OpenAndRepair = false;
+            object DocumentDirection = Word.WdDocumentDirection.wdLeftToRight;
+            object NoEncodingDialog = true;
+            object XMLTransform = Type.Missing;
+
+            Word.Document doc = word.Documents.Open(ref FileName,
+                                               ref ConfirmConversions,
+                                               ref ReadOnly,
+                                               ref AddToRecentFiles,
+                                               ref PasswordDocument,
+                                               ref PasswordTemplate,
+                                               ref Revert,
+                                               ref WritePasswordDocument,
+                                               ref WritePasswordTemplate,
+                                               ref Format,
+                                               ref Encoding,
+                                               ref Visible,
+                                               ref OpenAndRepair,
+                                               ref DocumentDirection,
+                                               ref NoEncodingDialog,
+                                               ref XMLTransform);
+
+            object docnum = 1;
+
+            Thread.Sleep(3000);
+
+            word.Documents.get_Item(ref docnum).Activate();
+
+
+
+            object oBookmark = "fromDep";
+
+            if (word.ActiveDocument.Bookmarks.Exists(oBookmark.ToString()))
+
+                word.ActiveDocument.Bookmarks.get_Item(ref oBookmark).Range.Text = "341-24 Отдел информационных технологий";
+
+            
+            oBookmark = "toDep";
+
+            if (word.ActiveDocument.Bookmarks.Exists(oBookmark.ToString()))
+
+                word.ActiveDocument.Bookmarks.get_Item(ref oBookmark).Range.Text = cbDepartment.Text;
+
+            oBookmark = "userPlace";
+
+            if (word.ActiveDocument.Bookmarks.Exists(oBookmark.ToString()))
+
+                word.ActiveDocument.Bookmarks.get_Item(ref oBookmark).Range.Text = cbWorkPlace.Text + ", к. " + txtbWorkRoom.Text;
+
+
+            oBookmark = "fromPos";
+
+            if (word.ActiveDocument.Bookmarks.Exists(oBookmark.ToString()))
+
+                word.ActiveDocument.Bookmarks.get_Item(ref oBookmark).Range.Text = "Ведущий специалист";
+
+            oBookmark = "toPos";
+
+            if (word.ActiveDocument.Bookmarks.Exists(oBookmark.ToString()))
+
+                word.ActiveDocument.Bookmarks.get_Item(ref oBookmark).Range.Text = cbPosition.Text;
+            
+            oBookmark = "fromUser";
+
+            if (word.ActiveDocument.Bookmarks.Exists(oBookmark.ToString()))
+
+                word.ActiveDocument.Bookmarks.get_Item(ref oBookmark).Range.Text = "Д.Л. Клипп";
+
+            oBookmark = "toUser";
+
+            if (word.ActiveDocument.Bookmarks.Exists(oBookmark.ToString()))
+
+                word.ActiveDocument.Bookmarks.get_Item(ref oBookmark).Range.Text = txbName.Text[0].ToString()+'.'+txbSecondName.Text[0].ToString()+". "+txbLastName.Text;
+
+            Microsoft.Office.Interop.Word.Row  row = word.ActiveDocument.Tables[1].Rows.Add();
+
+            
+            //cell(2,1) вторая строка первый столбец
+            word.ActiveDocument.Tables[3].Cell(2, 1).Range.Text = "Тест";
+
+            
+
+           
+        
+
         }
 
            

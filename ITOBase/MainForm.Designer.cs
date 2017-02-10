@@ -160,6 +160,7 @@
             this.dgvIventVSBook = new System.Windows.Forms.DataGridView();
             this.tabPage11 = new System.Windows.Forms.TabPage();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.button16 = new System.Windows.Forms.Button();
             this.cmenuPhones.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage5.SuspendLayout();
@@ -994,6 +995,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button16);
             this.tabPage2.Controls.Add(this.button11);
             this.tabPage2.Controls.Add(this.button7);
             this.tabPage2.Controls.Add(this.dgwDevices);
@@ -1565,6 +1567,16 @@
             this.saveFileDialog1.Filter = "Excel | *.xlsx";
             this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
             // 
+            // button16
+            // 
+            this.button16.Location = new System.Drawing.Point(427, 427);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(75, 23);
+            this.button16.TabIndex = 3;
+            this.button16.Text = "button16";
+            this.button16.UseVisualStyleBackColor = true;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1755,6 +1767,7 @@
         private System.Windows.Forms.TextBox txbGKLogin;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button button16;
 
     }
 }
